@@ -8,10 +8,16 @@ spring:
     allow-circular-references: true
   datasource:
     druid:
-      driver-class-name: ${sky.datasource.driver-class-name}
-      url: jdbc:mysql://${sky.datasource.host}:${sky.datasource.port}/${sky.datasource.database}?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
-      username: ${sky.datasource.username}
-      password: ${sky.datasource.password}
+      #      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/sky_take_out?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+      username: root
+      password: 1234
+  #      这种用法报错了，无法解决，感觉只剩IDEA版本冲突这一种可能了，其他的（比如mysql驱动和JDK和druid之间的冲突都试过了（
+  #      driver-class-name: ${sky.datasource.driver-class-name}
+  #      url: jdbc:mysql://${sky.datasource.host}:${sky.datasource.port}/${sky.datasource.database}?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+  #      username: ${sky.datasource.username}
+  #      password: ${sky.datasource.password}
+
 
 mybatis:
   #mapper配置文件
@@ -28,12 +34,11 @@ logging:
         mapper: debug
         service: info
         controller: info
-
 sky:
   jwt:
     # 设置jwt签名加密时使用的秘钥
     admin-secret-key: itcast
-    # 设置jwt过期时间
-    admin-ttl: 7200000
+    # 设置jwt过期时间，365*24*3600
+    admin-ttl: 31536000
     # 设置前端传递过来的令牌名称
     admin-token-name: token

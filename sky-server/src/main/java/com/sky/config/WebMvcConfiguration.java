@@ -62,7 +62,11 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
      * @param registry
      */
     protected void addResourceHandlers(ResourceHandlerRegistry registry) {
+
+//        自己设置的查看接口文档的入口/doc.html
         registry.addResourceHandler("/doc.html").addResourceLocations("classpath:/META-INF/resources/");
+//        必要的资源
         registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
+
     }
 }
