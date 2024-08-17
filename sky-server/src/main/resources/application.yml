@@ -18,7 +18,6 @@ spring:
   #      username: ${sky.datasource.username}
   #      password: ${sky.datasource.password}
 
-
 mybatis:
   #mapper配置文件
   mapper-locations: classpath:mapper/*.xml
@@ -34,6 +33,7 @@ logging:
         mapper: debug
         service: info
         controller: info
+
 sky:
   jwt:
     # 设置jwt签名加密时使用的秘钥
