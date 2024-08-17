@@ -11,6 +11,9 @@ import java.sql.SQLIntegrityConstraintViolationException;
 
 /**
  * 全局异常处理器，处理项目中抛出的业务异常
+ * 在全局异常处理器当中，需要定义一个方法来捕获异常，在这个方法上需要加上注解
+// * @ExceptionHandler。通过@ExceptionHandler注解当中的value属性来指定我们要捕获的
+ * 是哪一类型的异常。
  */
 @RestControllerAdvice
 @Slf4j

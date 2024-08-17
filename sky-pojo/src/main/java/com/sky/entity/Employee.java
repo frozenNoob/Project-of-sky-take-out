@@ -32,6 +32,8 @@ public class Employee implements Serializable {
 
     private Integer status;
 
+//   格式转化的，需要在每个时间属性上都要加上该注解，使用较麻烦，不能全局处理。
+//    所以采用在WebMvcConfiguration中扩展SpringMVC的消息转换器，统一对日期类型进行格式处理
     //@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createTime;
 
