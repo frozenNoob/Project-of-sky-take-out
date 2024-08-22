@@ -2,21 +2,25 @@ server:
   port: 8080
 
 spring:
-  profiles:
-    active: dev
+#  废物用profile导入，根本没用
+#  profiles:
+#    active: dev
+#  正确的导入作法
+  config:
+    import: classpath:application-dev.yml
+
   main:
     allow-circular-references: true
   datasource:
     druid:
-      #      driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/sky_take_out?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
-      username: root
-      password: 1234
-  #      这种用法报错了，无法解决，感觉只剩IDEA版本冲突这一种可能了，其他的（比如mysql驱动和JDK和druid之间的冲突都试过了（
-  #      driver-class-name: ${sky.datasource.driver-class-name}
-  #      url: jdbc:mysql://${sky.datasource.host}:${sky.datasource.port}/${sky.datasource.database}?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
-  #      username: ${sky.datasource.username}
-  #      password: ${sky.datasource.password}
+#      driver-class-name: com.mysql.cj.jdbc.Driver
+#      url: jdbc:mysql://localhost:3306/sky_take_out?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+#      username: root
+#      password: 1234
+      driver-class-name: ${sky.datasource.driver-class-name}
+      url: jdbc:mysql://${sky.datasource.host}:${sky.datasource.port}/${sky.datasource.database}?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+      username: ${sky.datasource.username}
+      password: ${sky.datasource.password}
 
 mybatis:
   #mapper配置文件
@@ -42,3 +46,13 @@ sky:
     admin-ttl: 31536000000
     # 设置前端传递过来的令牌名称
     admin-token-name: token
+#  alioss:
+#    endpoint: "oss-cn-beijing.aliyuncs.com"
+#    access-key-id: "LTAI5tFCoQeyF4kTEax5yxtX"
+#    access-key-secret: "3xjBNfIPeeGXrinc0U6yQ5Vp8xhKPd"
+#    bucket-name: "sky-take-out-wb333"
+  alioss:
+    endpoint: ${sky.dev-alioss.endpoint}
+    access-key-id: ${sky.dev-alioss.access-key-id}
+    access-key-secret: ${sky.dev-alioss.access-key-secret}
+    bucket-name: ${sky.dev-alioss.bucket-name}
