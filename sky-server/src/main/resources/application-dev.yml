@@ -8,7 +8,7 @@ sky:
     password: 1234
   dev-alioss:
     endpoint: oss-cn-beijing.aliyuncs.com
-    access-key-id: LTAI5tEHTbZaKqeRgbDNG1XY
-    access-key-secret: 4nsmlznZ546bOLvnDPmlVPf3Zm9ROk
+    access-key-id: LTAI5tFCoQeyF4kTEax5yxtX
+    access-key-secret: 3xjBNfIPeeGXrinc0U6yQ5Vp8xhKPd
     bucket-name: sky-take-out-wb333
 

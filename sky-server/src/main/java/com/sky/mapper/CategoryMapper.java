@@ -5,6 +5,7 @@ import com.sky.annotation.AutoFill;
 import com.sky.dto.CategoryPageQueryDTO;
 import com.sky.entity.Category;
 import com.sky.enumeration.OperationType;
+import com.sky.vo.DishVO;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -52,4 +53,11 @@ public interface CategoryMapper {
      * @return
      */
     List<Category> list(Integer type);
+
+    /**
+     * 根据分类id查询套餐
+     * @param categoryId
+     * @return
+     */
+    DishVO getByCategoryId(Long categoryId);
 }

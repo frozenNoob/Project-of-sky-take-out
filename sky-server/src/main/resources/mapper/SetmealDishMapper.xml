@@ -8,4 +8,22 @@
             #{dishId}
         </foreach>
     </select>
+
+<!--    keyProperty 属性用于指定响应自动生成的主键值应该设置到哪一个 Java 对象的属性上。在这里，id 表示将自动生成的主键值设置到 Setmeal 对象的 id 属性上。-->
+    <insert id="insert" parameterType="Setmeal" useGeneratedKeys="true" keyProperty="id">
+        insert into setmeal
+        (category_id, name, price, status, description, image, create_time, update_time, create_user, update_user)
+        values (#{categoryId}, #{name}, #{price}, #{status}, #{description}, #{image}, #{createTime}, #{updateTime},
+                #{createUser}, #{updateUser})
+    </insert>
+
+<!--    这里使用collection指定数据源，并以item起别名-->
+    <insert id="insertBatch" parameterType="list">
+        insert into setmeal_dish
+        (setmeal_id,dish_id,name,price,copies)
+        values
+        <foreach collection="setmealDishes" item="sd" separator=",">
+            (#{sd.setmealId},#{sd.dishId},#{sd.name},#{sd.price},#{sd.copies})
+        </foreach>
+    </insert>
 </mapper>
