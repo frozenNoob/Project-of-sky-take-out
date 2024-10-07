@@ -29,14 +29,13 @@ public class CommonController {
 
     /**
      * 文件上传
-     *
      * @param file
      * @return
      */
     @PostMapping("/upload")
     @ApiOperation("文件上传")
-    public Result<String> upload(MultipartFile file) {
-        log.info("文件上传：{}", file);
+    public Result<String> upload(MultipartFile file){
+        log.info("文件上传：{}",file);
 
         try {
             //原始文件名
@@ -48,9 +47,6 @@ public class CommonController {
 
             //文件的请求路径
             String filePath = aliOssUtil.upload(file.getBytes(), objectName);
-//            其实这里可以直接获取上传的文件的输入流,需要调整upload的file.getBytes()为MultipartFile！
-//            InputStream inputStream = multipartFile.getInputStream();
-//            ossClient.putObject(bucketName, fileName, inputStream);
             return Result.success(filePath);
         } catch (IOException e) {
             log.error("文件上传失败：{}", e);

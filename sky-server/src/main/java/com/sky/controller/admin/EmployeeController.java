@@ -26,7 +26,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/admin/employee")
 @Slf4j
-@Api(tags = "员工相关接口") //反应到接口文件的左侧窗口的功能显示
+@Api(tags = "员工相关接口")
 public class EmployeeController {
 
     @Autowired
@@ -71,22 +71,21 @@ public class EmployeeController {
      * @return
      */
     @PostMapping("/logout")
-    @ApiOperation("员工登出")
+    @ApiOperation("员工退出")
     public Result<String> logout() {
         return Result.success();
     }
 
     /**
      * 新增员工
-     *
      * @param employeeDTO
-     * @return result
+     * @return
      */
     @PostMapping
     @ApiOperation("新增员工")
-    public Result save(@RequestBody EmployeeDTO employeeDTO) {
-        log.info("新增员工：{}", employeeDTO);
-        employeeService.save(employeeDTO);//该方法后续步骤会定义
+    public Result save(@RequestBody EmployeeDTO employeeDTO){
+        log.info("新增员工：{}",employeeDTO);
+        employeeService.save(employeeDTO);
         return Result.success();
     }
 
@@ -99,7 +98,7 @@ public class EmployeeController {
     @ApiOperation("员工分页查询")
     public Result<PageResult> page(EmployeePageQueryDTO employeePageQueryDTO){
         log.info("员工分页查询，参数为：{}", employeePageQueryDTO);
-        PageResult pageResult = employeeService.pageQuery(employeePageQueryDTO);//后续定义
+        PageResult pageResult = employeeService.pageQuery(employeePageQueryDTO);
         return Result.success(pageResult);
     }
 
@@ -111,10 +110,9 @@ public class EmployeeController {
      */
     @PostMapping("/status/{status}")
     @ApiOperation("启用禁用员工账号")
-    //找不到的话就默认是请求参数了吗？
     public Result startOrStop(@PathVariable Integer status,Long id){
         log.info("启用禁用员工账号：{},{}",status,id);
-        employeeService.startOrStop(status,id);//后绪步骤定义
+        employeeService.startOrStop(status,id);
         return Result.success();
     }
 

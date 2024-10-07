@@ -2,13 +2,12 @@ server:
   port: 8080
 
 spring:
-#  废物用profile导入，根本没用
-#  profiles:
-#    active: dev
-#  正确的导入作法
+  #  废物用profile导入，根本没用
+  #  profiles:
+  #    active: dev
+  #  正确的导入作法
   config:
     import: classpath:application-dev.yml
-
   main:
     allow-circular-references: true
   datasource:
@@ -20,7 +19,6 @@ spring:
   redis:
     host: ${sky.redis.host}
     port: ${sky.redis.port}
-#    url: ${sky.redis.url}
     password: ${sky.redis.password}
     database: ${sky.redis.database}
 
@@ -44,17 +42,29 @@ sky:
   jwt:
     # 设置jwt签名加密时使用的秘钥
     admin-secret-key: itcast
-    # 设置jwt过期时间，365*24*3600*1000
-    admin-ttl: 31536000000
+    # 设置jwt过期时间
+    admin-ttl: 7200000
     # 设置前端传递过来的令牌名称
     admin-token-name: token
-#  alioss:
-#    endpoint: "oss-cn-beijing.aliyuncs.com"
-#    access-key-id: "LTAI5tFCoQeyF4kTEax5yxtX"
-#    access-key-secret: "3xjBNfIPeeGXrinc0U6yQ5Vp8xhKPd"
-#    bucket-name: "sky-take-out-wb333"
+    user-secret-key: itheima
+    user-ttl: 7200000
+    user-token-name: authentication
   alioss:
-    endpoint: ${sky.dev-alioss.endpoint}
-    access-key-id: ${sky.dev-alioss.access-key-id}
-    access-key-secret: ${sky.dev-alioss.access-key-secret}
-    bucket-name: ${sky.dev-alioss.bucket-name}
+    endpoint: ${sky.alioss.endpoint}
+    access-key-id: ${sky.alioss.access-key-id}
+    access-key-secret: ${sky.alioss.access-key-secret}
+    bucket-name: ${sky.alioss.bucket-name}
+  wechat:
+    appid: ${sky.wechat.appid}
+    secret: ${sky.wechat.secret}
+    mchid : ${sky.wechat.mchid}
+    mchSerialNo: ${sky.wechat.mchSerialNo}
+    privateKeyFilePath: ${sky.wechat.privateKeyFilePath}
+    apiV3Key: ${sky.wechat.apiV3Key}
+    weChatPayCertFilePath: ${sky.wechat.weChatPayCertFilePath}
+    notifyUrl: ${sky.wechat.notifyUrl}
+    refundNotifyUrl: ${sky.wechat.refundNotifyUrl}
+  shop:
+    address: 北京市海淀区上地十街10号
+  baidu:
+    ak: your-ak

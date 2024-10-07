@@ -9,11 +9,6 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 @Configuration
 @Slf4j
-/*
-当前配置类不是必须的，因为 Spring Boot 框架会自动装配 RedisTemplate 对象，但是默认的key序列化器为
-JdkSerializationRedisSerializer，导致我们存到Redis中后的数据和原始数据有差别，故设置为
-StringRedisSerializer序列化器。
- */
 public class RedisConfiguration {
 
     @Bean

@@ -49,7 +49,4 @@
         </if>
         order by sort asc,create_time desc
     </select>
-    <select id="getByCategoryId" resultType="com.sky.vo.DishVO">
-        select *from category lef
-    </select>
 </mapper>

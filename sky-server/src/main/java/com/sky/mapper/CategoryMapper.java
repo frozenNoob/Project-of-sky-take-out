@@ -2,14 +2,12 @@ package com.sky.mapper;
 
 import com.github.pagehelper.Page;
 import com.sky.annotation.AutoFill;
+import com.sky.enumeration.OperationType;
 import com.sky.dto.CategoryPageQueryDTO;
 import com.sky.entity.Category;
-import com.sky.enumeration.OperationType;
-import com.sky.vo.DishVO;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
-
 import java.util.List;
 
 @Mapper
@@ -26,13 +24,6 @@ public interface CategoryMapper {
     void insert(Category category);
 
     /**
-     * 根据id修改分类
-     * @param category
-     */
-    @AutoFill(value = OperationType.UPDATE)
-    void update(Category category);
-
-    /**
      * 分页查询
      * @param categoryPageQueryDTO
      * @return
@@ -46,6 +37,12 @@ public interface CategoryMapper {
     @Delete("delete from category where id = #{id}")
     void deleteById(Long id);
 
+    /**
+     * 根据id修改分类
+     * @param category
+     */
+    @AutoFill(value = OperationType.UPDATE)
+    void update(Category category);
 
     /**
      * 根据类型查询分类
@@ -53,11 +50,4 @@ public interface CategoryMapper {
      * @return
      */
     List<Category> list(Integer type);
-
-    /**
-     * 根据分类id查询套餐
-     * @param categoryId
-     * @return
-     */
-    DishVO getByCategoryId(Long categoryId);
 }

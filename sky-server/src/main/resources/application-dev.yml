@@ -6,7 +6,7 @@ sky:
     database: sky_take_out
     username: root
     password: 1234
-  dev-alioss:
+  alioss:
     endpoint: oss-cn-beijing.aliyuncs.com
     access-key-id: LTAI5tFCoQeyF4kTEax5yxtX
     access-key-secret: 3xjBNfIPeeGXrinc0U6yQ5Vp8xhKPd
@@ -15,7 +15,14 @@ sky:
     host: localhost
     port: 6379
     password: 123456
-#    url: redis://000000@127.0.0.1:6379
-#    指定使用Redis的哪个数据库，Redis服务启动后默认有16个数据库，编号分别是从0到15，即DB0到DB15
     database: 0
-
+  wechat:
+    appid: wx2cff3fee6e7776e5
+    secret: 7c830e084139bbb29765e21d7d5c629c
+    mchid : 1561414331
+    mchSerialNo: 4B3B3DC35414AD50B1B755BAF8DE9CC7CF407606
+    privateKeyFilePath: D:\pay\apiclient_key.pem
+    apiV3Key: CZBK51236435wxpay435434323FFDuv3
+    weChatPayCertFilePath: D:\pay\wechatpay_166D96F876F45C7D07CE98952A96EC980368ACFC.pem
+    notifyUrl: https://58869fb.r2.cpolar.top/notify/paySuccess
+    refundNotifyUrl: https://58869fb.r2.cpolar.top/notify/refundSuccess
