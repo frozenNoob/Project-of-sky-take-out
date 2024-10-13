@@ -37,6 +37,10 @@ public class EmployeeServiceImpl implements EmployeeService {
      * @return
      */
     public Employee login(EmployeeLoginDTO employeeLoginDTO) {
+
+        if(employeeLoginDTO == null){
+            throw new AccountNotFoundException("传入的数据为空");
+        }
         String username = employeeLoginDTO.getUsername();
         String password = employeeLoginDTO.getPassword();
 

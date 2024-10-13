@@ -1,5 +1,6 @@
 package com.sky.mapper;
 
+import com.sky.entity.Employee;
 import com.sky.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -8,14 +9,13 @@ import java.util.Map;
 
 @Mapper
 public interface UserMapper {
-
     /**
-     * 根据openid查询用户
-     * @param openid
+     * 根据用户名查询员工
+     * @param username
      * @return
      */
-    @Select("select * from user where openid = #{openid}")
-    User getByOpenid(String openid);
+    @Select("select * from user where username = #{username}")
+    User getByUsername(String username);
 
     /**
      * 插入数据

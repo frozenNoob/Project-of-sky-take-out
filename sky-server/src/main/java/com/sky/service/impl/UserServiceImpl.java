@@ -1,32 +1,26 @@
 package com.sky.service.impl;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.sky.constant.MessageConstant;
+import com.sky.constant.PasswordConstant;
+import com.sky.dto.UserDTO;
 import com.sky.dto.UserLoginDTO;
 import com.sky.entity.User;
-import com.sky.exception.LoginFailedException;
+import com.sky.exception.AccountNotFoundException;
+import com.sky.exception.PasswordErrorException;
 import com.sky.mapper.UserMapper;
-import com.sky.properties.WeChatProperties;
 import com.sky.service.UserService;
-import com.sky.utils.HttpClientUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.DigestUtils;
 
 import java.time.LocalDateTime;
-import java.util.HashMap;
-import java.util.Map;
 
 @Service
 @Slf4j
 public class UserServiceImpl implements UserService {
 
-    //微信服务接口地址
-    public static final String WX_LOGIN = "https://api.weixin.qq.com/sns/jscode2session";
-
-    @Autowired
-    private WeChatProperties weChatProperties;
     @Autowired
     private UserMapper userMapper;
 
@@ -35,46 +29,46 @@ public class UserServiceImpl implements UserService {
      * @param userLoginDTO
      * @return
      */
-    public User wxLogin(UserLoginDTO userLoginDTO) {
-        String openid = getOpenid(userLoginDTO.getCode());
+    public User login(UserLoginDTO userLoginDTO) {
+        String username = userLoginDTO.getUsername();
+        String password = userLoginDTO.getPassword();
 
-        //判断openid是否为空，如果为空表示登录失败，抛出业务异常
-        if(openid == null){
-            throw new LoginFailedException(MessageConstant.LOGIN_FAILED);
+        //1、根据用户名查询数据库中的数据
+        User user = userMapper.getByUsername(username);
+
+        //2、处理各种异常情况（用户名不存在、密码不对、账号被锁定）
+        if (user == null) {
+            //账号不存在
+            throw new AccountNotFoundException(MessageConstant.ACCOUNT_NOT_FOUND);
         }
 
-        //判断当前用户是否为新用户
-        User user = userMapper.getByOpenid(openid);
-
-        //如果是新用户，自动完成注册
-        if(user == null){
-            user = User.builder()
-                    .openid(openid)
-                    .createTime(LocalDateTime.now())
-                    .build();
-            userMapper.insert(user);
+        //密码比对
+        //对前端传过来的明文密码进行md5加密处理
+        password = DigestUtils.md5DigestAsHex(password.getBytes());
+        if (!password.equals(user.getPassword())) {
+            //密码错误
+            throw new PasswordErrorException(MessageConstant.PASSWORD_ERROR);
         }
 
         //返回这个用户对象
         return user;
     }
 
-    /**
-     * 调用微信接口服务，获取微信用户的openid
-     * @param code
-     * @return
-     */
-    private String getOpenid(String code){
-        //调用微信接口服务，获得当前微信用户的openid
-        Map<String, String> map = new HashMap<>();
-        map.put("appid",weChatProperties.getAppid());
-        map.put("secret",weChatProperties.getSecret());
-        map.put("js_code",code);
-        map.put("grant_type","authorization_code");
-        String json = HttpClientUtil.doGet(WX_LOGIN, map);
+    @Override
+    public void save(UserDTO userDTO) {
 
-        JSONObject jsonObject = JSON.parseObject(json);
-        String openid = jsonObject.getString("openid");
-        return openid;
+        User user = new User();
+
+        //对象属性拷贝
+        BeanUtils.copyProperties(userDTO, user);
+
+        //设置密码，默认密码123456
+        user.setPassword(DigestUtils.md5DigestAsHex(PasswordConstant.DEFAULT_PASSWORD.getBytes()));
+
+        //设置当前记录的创建时间
+        user.setCreateTime(LocalDateTime.now());
+
+        userMapper.insert(user);
+
     }
 }

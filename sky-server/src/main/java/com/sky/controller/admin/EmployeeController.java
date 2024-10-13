@@ -37,8 +37,8 @@ public class EmployeeController {
     /**
      * 登录
      *
-     * @param employeeLoginDTO
-     * @return
+     * @param employeeLoginDTO 员工登录传入的JSON数据
+     * @return 返回结果，类型为EmployeeLoginVO
      */
     @PostMapping("/login")
     @ApiOperation(value = "员工登录")
