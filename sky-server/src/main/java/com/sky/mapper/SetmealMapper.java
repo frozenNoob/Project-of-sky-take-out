@@ -94,4 +94,7 @@ public interface SetmealMapper {
      * @return
      */
     Integer countByMap(Map map);
+
+    @Select("select * from setmeal where status=1")
+    List<SetmealVO> getAllSetmeal();
 }

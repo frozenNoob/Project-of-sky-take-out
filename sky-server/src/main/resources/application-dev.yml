@@ -8,9 +8,9 @@ sky:
     password: 1234
   alioss:
     endpoint: oss-cn-beijing.aliyuncs.com
-    access-key-id: LTAI5tFCoQeyF4kTEax5yxtX
-    access-key-secret: 3xjBNfIPeeGXrinc0U6yQ5Vp8xhKPd
-    bucket-name: sky-take-out-wb333
+    access-key-id: LTAI5tRSrCtJCn3gicN18qbn
+    access-key-secret: Axr6qrlzFIjO3FOQqnuqvoeQFa8SlF
+    bucket-name: sky-take-out-cwj333
   redis:
     host: localhost
     port: 6379

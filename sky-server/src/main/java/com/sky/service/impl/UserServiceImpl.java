@@ -30,6 +30,9 @@ public class UserServiceImpl implements UserService {
      * @return
      */
     public User login(UserLoginDTO userLoginDTO) {
+        if (userLoginDTO.getUsername() == null || userLoginDTO.getPassword() == null) {
+            throw new AccountNotFoundException("传入的数据为空");
+        }
         String username = userLoginDTO.getUsername();
         String password = userLoginDTO.getPassword();
 

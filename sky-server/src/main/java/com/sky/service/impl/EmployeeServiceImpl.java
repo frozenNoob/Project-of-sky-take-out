@@ -38,7 +38,7 @@ public class EmployeeServiceImpl implements EmployeeService {
      */
     public Employee login(EmployeeLoginDTO employeeLoginDTO) {
 
-        if(employeeLoginDTO == null){
+        if (employeeLoginDTO.getUsername() == null || employeeLoginDTO.getPassword() == null) {
             throw new AccountNotFoundException("传入的数据为空");
         }
         String username = employeeLoginDTO.getUsername();
@@ -47,7 +47,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         //1、根据用户名查询数据库中的数据
         Employee employee = employeeMapper.getByUsername(username);
 
-        //2、处理各种异常情况（用户名不存在、密码不对、账号被锁定）
+        //2、处理异常：用户名不存在
         if (employee == null) {
             //账号不存在
             throw new AccountNotFoundException(MessageConstant.ACCOUNT_NOT_FOUND);
@@ -105,15 +105,12 @@ public class EmployeeServiceImpl implements EmployeeService {
      * @return
      */
     public PageResult pageQuery(EmployeePageQueryDTO employeePageQueryDTO) {
-        // select * from employee limit 0,10
+        // select * from employee limit 0,5
         //开始分页查询
         PageHelper.startPage(employeePageQueryDTO.getPage(), employeePageQueryDTO.getPageSize());
-
         Page<Employee> page = employeeMapper.pageQuery(employeePageQueryDTO);
-
-        long total = page.getTotal();
+        Long total = page.getTotal();
         List<Employee> records = page.getResult();
-
         return new PageResult(total, records);
     }
 

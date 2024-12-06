@@ -7,12 +7,15 @@ import com.sky.service.DishService;
 import com.sky.vo.DishVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.models.auth.In;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController("userDishController")
@@ -40,7 +43,7 @@ public class DishController {
 
         //查询redis中是否存在菜品数据
         List<DishVO> list = (List<DishVO>) redisTemplate.opsForValue().get(key);
-        if(list != null && list.size() > 0){
+        if (list != null && list.size() > 0) {
             //如果存在，直接返回，无须查询数据库
             return Result.success(list);
         }
@@ -56,4 +59,16 @@ public class DishController {
         return Result.success(list);
     }
 
+    /**
+     * 查询所有菜品
+     *
+     * @return
+     */
+    @GetMapping("/listAll")
+    @ApiOperation("列出所有菜品")
+    public Result<List<DishVO>> listAll() {
+        List<DishVO> list = dishService.getAllDish();//在SQL中已经编写了withFlavor
+
+        return Result.success(list);
+    }
 }

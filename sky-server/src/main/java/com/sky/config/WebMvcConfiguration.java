@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
@@ -33,6 +34,21 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
     @Autowired
     private JwtTokenUserInterceptor jwtTokenUserInterceptor;
 
+    /**
+     * 全局设置CORS(跨域资源共享），解决跨域问题
+     * @param registry
+     */
+    @Override
+    protected void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")//为指定路径启用跨域请求处理
+//                 允许特定前端访问，allowedOrigins这种形式是不能包含特殊值*，因为它不能在” Access-Control-Allow-Origin "响应头中设置。
+//                .allowedOrigins("http://localhost:8888")
+                .allowedOriginPatterns("*") //允许所有前端访问
+                .allowedMethods("GET", "POST", "PUT", "DELETE")  // 允许的请求方法
+                .allowedHeaders("*")  // 允许的请求头
+                .allowCredentials(true)  // 是否允许发送Cookie等认证信息
+                .maxAge(3600);  // 预检请求的有效期，单位秒
+    }
     /**
      * 注册自定义拦截器
      * @param registry

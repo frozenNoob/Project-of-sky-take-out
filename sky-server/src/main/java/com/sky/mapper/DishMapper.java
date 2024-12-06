@@ -76,6 +76,7 @@ public interface DishMapper {
 
     /**
      * 根据套餐id查询菜品
+     *
      * @param setmealId
      * @return
      */
@@ -84,8 +85,12 @@ public interface DishMapper {
 
     /**
      * 根据条件统计菜品数量
+     *
      * @param map
      * @return
      */
     Integer countByMap(Map map);
+
+    @Select("select * from dish where status=1")
+    List<Dish> getAllDish();
 }

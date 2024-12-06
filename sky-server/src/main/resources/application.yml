@@ -25,6 +25,9 @@ spring:
 mybatis:
   #mapper配置文件
   mapper-locations: classpath:mapper/*.xml
+  #  比如你的配置是 typeAliasesPackage: com.sky.entity。
+  #  这意味着 MyBatis 会扫描指定的包路径 com.sky.entity，并将这个包中的所有实体类注册为别名，
+  #  注册后你就可以在 MyBatis 的映射文件（.xml）中直接使用实体类的类名而不需要写全路径的类名。
   type-aliases-package: com.sky.entity
   configuration:
     #开启驼峰命名
@@ -48,7 +51,8 @@ sky:
     admin-token-name: token
     user-secret-key: itheima
     user-ttl: 7200000
-    user-token-name: authentication
+    user-token-name: token
+  #    user-token-name: authentication
   alioss:
     endpoint: ${sky.alioss.endpoint}
     access-key-id: ${sky.alioss.access-key-id}

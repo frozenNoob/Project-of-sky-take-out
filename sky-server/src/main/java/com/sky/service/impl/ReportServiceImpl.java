@@ -135,6 +135,7 @@ public class ReportServiceImpl implements ReportService {
 
     /**
      * 统计指定时间区间内的订单数据
+     *
      * @param begin
      * @param end
      * @return
@@ -176,15 +177,15 @@ public class ReportServiceImpl implements ReportService {
         Integer validOrderCount = validOrderCountList.stream().reduce(Integer::sum).get();
 
         Double orderCompletionRate = 0.0;
-        if(totalOrderCount != 0){
+        if (totalOrderCount != 0) {
             //计算订单完成率
             orderCompletionRate = validOrderCount.doubleValue() / totalOrderCount;
         }
 
-        return  OrderReportVO.builder()
-                .dateList(StringUtils.join(dateList,","))
-                .orderCountList(StringUtils.join(orderCountList,","))
-                .validOrderCountList(StringUtils.join(validOrderCountList,","))
+        return OrderReportVO.builder()
+                .dateList(StringUtils.join(dateList, ","))
+                .orderCountList(StringUtils.join(orderCountList, ","))
+                .validOrderCountList(StringUtils.join(validOrderCountList, ","))
                 .totalOrderCount(totalOrderCount)
                 .validOrderCount(validOrderCount)
                 .orderCompletionRate(orderCompletionRate)
@@ -193,22 +194,24 @@ public class ReportServiceImpl implements ReportService {
 
     /**
      * 根据条件统计订单数量
+     *
      * @param begin
      * @param end
      * @param status
      * @return
      */
-    private Integer getOrderCount(LocalDateTime begin, LocalDateTime end, Integer status){
+    private Integer getOrderCount(LocalDateTime begin, LocalDateTime end, Integer status) {
         Map map = new HashMap();
-        map.put("begin",begin);
-        map.put("end",end);
-        map.put("status",status);
+        map.put("begin", begin);
+        map.put("end", end);
+        map.put("status", status);
 
         return orderMapper.countByMap(map);
     }
 
     /**
      * 统计指定时间区间内的销量排名前10
+     *
      * @param begin
      * @param end
      * @return
@@ -234,6 +237,7 @@ public class ReportServiceImpl implements ReportService {
 
     /**
      * 导出运营数据报表
+     *
      * @param response
      */
     public void exportBusinessData(HttpServletResponse response) {
@@ -242,7 +246,8 @@ public class ReportServiceImpl implements ReportService {
         LocalDate dateEnd = LocalDate.now().minusDays(1);
 
         //查询概览数据
-        BusinessDataVO businessDataVO = workspaceService.getBusinessData(LocalDateTime.of(dateBegin, LocalTime.MIN), LocalDateTime.of(dateEnd, LocalTime.MAX));
+        BusinessDataVO businessDataVO = workspaceService.getBusinessData(LocalDateTime.of(dateBegin, LocalTime.MIN),
+                LocalDateTime.of(dateEnd, LocalTime.MAX));
 
         //2. 通过POI将数据写入到Excel文件中
         InputStream in = this.getClass().getClassLoader().getResourceAsStream("template/运营数据报表模板.xlsx");

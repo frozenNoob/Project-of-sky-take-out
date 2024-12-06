@@ -190,12 +190,12 @@ public class OrderServiceImpl implements OrderService {
         }
     }
 
-    /**
-     * 订单支付
-     *
-     * @param ordersPaymentDTO
-     * @return
-     */
+//    /**
+//     * 订单支付
+//     *
+//     * @param ordersPaymentDTO
+//     * @return
+//     */
 //    public OrderPaymentVO payment(OrdersPaymentDTO ordersPaymentDTO) throws Exception {
 //        // 当前登录用户id
 //        Long userId = BaseContext.getCurrentId();

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/user/addressBook")
 @Api(tags = "C端地址簿接口")
@@ -104,7 +105,7 @@ public class AddressBookController {
         List<AddressBook> list = addressBookService.list(addressBook);
 
         if (list != null && list.size() == 1) {
-            return Result.success(list.get(0));
+            return Result.success(list.get(0));//获取其中之一
         }
 
         return Result.error("没有查询到默认地址");
