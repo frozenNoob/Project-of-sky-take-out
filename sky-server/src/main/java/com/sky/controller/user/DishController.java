@@ -55,7 +55,6 @@ public class DishController {
         //如果不存在，查询数据库，将查询到的数据放入redis中
         list = dishService.listWithFlavor(dish);
         redisTemplate.opsForValue().set(key, list);
-
         return Result.success(list);
     }
 

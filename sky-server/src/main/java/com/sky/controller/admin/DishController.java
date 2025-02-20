@@ -23,7 +23,7 @@ import java.util.Set;
 @RestController
 @RequestMapping("/admin/dish")
 @Api(tags = "菜品相关接口")
-@Slf4j
+@Slf4j //这个是一种日志框架
 public class DishController {
 
     @Autowired
