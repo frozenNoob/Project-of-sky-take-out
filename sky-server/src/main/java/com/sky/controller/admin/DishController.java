@@ -1,5 +1,7 @@
 package com.sky.controller.admin;
 
+
+import com.github.benmanes.caffeine.cache.Cache;
 import com.sky.dto.DishDTO;
 import com.sky.dto.DishPageQueryDTO;
 import com.sky.entity.Dish;
@@ -29,7 +31,9 @@ public class DishController {
     @Autowired
     private DishService dishService;
     @Autowired
-    private RedisTemplate redisTemplate;
+    private RedisTemplate<String, Object> redisTemplate;
+    @Autowired
+    private Cache<String, Object> caffeineCache;
 
     /**
      * 新增菜品
@@ -146,10 +150,14 @@ public class DishController {
 
     /**
      * 清理缓存数据
+     *
      * @param pattern
      */
-    private void cleanCache(String pattern){
+    private void cleanCache(String pattern) {
         Set keys = redisTemplate.keys(pattern);
+        //删除Caffeine缓存
+        caffeineCache.invalidate(keys);
+        //再删除Redis缓存
         redisTemplate.delete(keys);
     }
 }

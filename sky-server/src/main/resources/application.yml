@@ -21,6 +21,20 @@ spring:
     port: ${sky.redis.port}
     password: ${sky.redis.password}
     database: ${sky.redis.database}
+  cache: # Spring cache使用的配置，即@Cache需要用到
+    # 程序启动时创建的缓存名称
+    cache-names: spring-cache-1
+    # 缓存类型 org.springframework.boot.autoconfigure.cache.CacheType
+    type: caffeine
+    redis:
+      # 缓存前缀
+      key-prefix: "SPRING_CACHE:"
+      # 写入 Redis 时是否使用前缀 默认:true
+      use-key-prefix: true
+      # 允许缓存空值 默认: true, 可也防止缓存穿透问题
+      cache-null-values: true
+      # 缓存过期时间, 单位: 毫秒
+      time-to-live: 300000
 
 mybatis:
   #mapper配置文件
@@ -59,7 +73,12 @@ sky:
     access-key-id: ${sky.alioss.access-key-id}
     access-key-secret: ${sky.alioss.access-key-secret}
     bucket-name: ${sky.alioss.bucket-name}
+  caffeine:
+    expire-after-write: ${sky.caffeine.expire-after-write}
+    initial-capacity: ${sky.caffeine.initial-capacity}
+    maximum-size: ${sky.caffeine.maximum-size}
   shop:
     address: 北京市海淀区上地十街10号
   baidu:
     ak: your-ak
+

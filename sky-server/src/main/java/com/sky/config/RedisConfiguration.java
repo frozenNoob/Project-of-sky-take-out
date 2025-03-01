@@ -6,9 +6,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import java.awt.event.ActionListener;
-
+@EnableTransactionManagement
 @Configuration
 @Slf4j
 public class RedisConfiguration {
@@ -36,6 +36,10 @@ public class RedisConfiguration {
         redisTemplate.setConnectionFactory(redisConnectionFactory);
         //设置redis key的序列化器
         redisTemplate.setKeySerializer(new StringRedisSerializer());
+
+        // 显式启用事务支持
+        redisTemplate.setEnableTransactionSupport(true);
         return redisTemplate;
     }
+
 }

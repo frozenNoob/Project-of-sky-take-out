@@ -1,5 +1,6 @@
 package com.sky.controller.user;
 
+import com.github.benmanes.caffeine.cache.Cache;
 import com.sky.constant.StatusConstant;
 import com.sky.entity.Dish;
 import com.sky.result.Result;
@@ -26,7 +27,9 @@ public class DishController {
     @Autowired
     private DishService dishService;
     @Autowired
-    private RedisTemplate redisTemplate;
+    private RedisTemplate<String, Object> redisTemplate;
+    @Autowired
+    private Cache<String, Object> caffeineCache;
 
     /**
      * 根据分类id查询菜品
@@ -37,14 +40,24 @@ public class DishController {
     @GetMapping("/list")
     @ApiOperation("根据分类id查询菜品")
     public Result<List<DishVO>> list(Long categoryId) {
-
+        if(categoryId == null){
+            throw new RuntimeException("数据为空");
+        }
         //构造redis中的key，规则：dish_分类id
         String key = "dish_" + categoryId;
 
-        //查询redis中是否存在菜品数据
-        List<DishVO> list = (List<DishVO>) redisTemplate.opsForValue().get(key);
+        //先查询Caffeine
+        List<DishVO> list = (List<DishVO>) caffeineCache.getIfPresent(key);
         if (list != null && list.size() > 0) {
             //如果存在，直接返回，无须查询数据库
+            return Result.success(list);
+        }
+
+        //查询redis中是否存在菜品数据
+        list = (List<DishVO>) redisTemplate.opsForValue().get(key);
+        if (list != null && list.size() > 0) {
+            //如果存在，直接返回，无须查询数据库
+            caffeineCache.put(key, list);
             return Result.success(list);
         }
 
@@ -52,8 +65,9 @@ public class DishController {
         dish.setCategoryId(categoryId);
         dish.setStatus(StatusConstant.ENABLE);//查询起售中的菜品
 
-        //如果不存在，查询数据库，将查询到的数据放入redis中
+        //如果不存在，查询数据库，将查询到的数据放入redis和Caffeine中
         list = dishService.listWithFlavor(dish);
+        caffeineCache.put(key, list);
         redisTemplate.opsForValue().set(key, list);
         return Result.success(list);
     }
