@@ -21,6 +21,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
@@ -44,7 +45,7 @@ public class DishServiceImpl implements DishService {
      *
      * @param dishDTO
      */
-    @Transactional
+    @Transactional(isolation = Isolation.DEFAULT)
     public void saveWithFlavor(DishDTO dishDTO) {
 
         Dish dish = new Dish();
