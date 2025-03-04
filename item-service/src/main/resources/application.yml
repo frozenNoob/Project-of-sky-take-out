@@ -1,17 +1,15 @@
 server:
-  port: 8080
+  port: 8081
 
 spring:
   application:
-    name: all-service
-  #  废物用profile导入，根本没用
-  #  profiles:
-  #    active: dev
+    name: item-service
   #    正确的导入作法
   config:
     import: classpath:application-dev.yml
   main:
     allow-circular-references: true
+
   datasource:
     druid:
       driver-class-name: ${sky.datasource.driver-class-name}
@@ -37,6 +35,10 @@ spring:
       cache-null-values: true
       # 缓存过期时间, 单位: 毫秒
       time-to-live: 300000
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.139.132:8848
 
 mybatis:
   #mapper配置文件
@@ -51,7 +53,7 @@ mybatis:
 
 logging:
   level:
-    com.sky: debug
+    com.sky.item: debug
   pattern:
     dateformat: HH:mm:ss:SSS
   file:

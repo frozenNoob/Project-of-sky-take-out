@@ -1,0 +1,607 @@
+21:14:18:704  INFO 17884 --- [main] com.sky.SkyApplication                   : Starting SkyApplication using Java 11.0.6 on LAPTOP-1JKR20AL with PID 17884 (D:\homework_and_information\my javaweb project\Project of skyTakeOut\back end\sky-take-out\sky-server\target\classes started by WB in D:\homework_and_information\my javaweb project\Project of skyTakeOut\back end\sky-take-out)
+21:14:18:706 DEBUG 17884 --- [main] com.sky.SkyApplication                   : Running with Spring Boot v2.7.3, Spring v5.3.22
+21:14:18:707  INFO 17884 --- [main] com.sky.SkyApplication                   : The following 1 profile is active: "-Xshare:off"
+21:14:19:983  INFO 17884 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+21:14:19:987  INFO 17884 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+21:14:20:016  INFO 17884 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 Redis repository interfaces.
+21:14:21:036  INFO 17884 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+21:14:21:037  INFO 17884 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [2.0.6] using APR version [1.7.4].
+21:14:21:037  INFO 17884 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+21:14:21:038  INFO 17884 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+21:14:21:046  INFO 17884 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 3.0.11 19 Sep 2023]
+21:14:21:064  INFO 17884 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+21:14:21:064  INFO 17884 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+21:14:21:185  INFO 17884 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+21:14:21:185  INFO 17884 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2423 ms
+21:14:21:336  INFO 17884 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+21:14:21:462  INFO 17884 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+21:14:21:872  INFO 17884 --- [main] com.sky.config.OssConfiguration          : 开始创建阿里云文件上传工具类对象：AliOssProperties(endpoint=oss-cn-beijing.aliyuncs.com, accessKeyId=LTAI5tPotBJYHsucMnkFvcXo, accessKeySecret=G4o32EFv61KoA2eb35Uvifx6udH6VJ, bucketName=sky-take-out-wb333)
+21:14:22:154  INFO 17884 --- [main] com.sky.config.RedisConfiguration        : 开始创建redis模板对象...
+21:14:22:668  INFO 17884 --- [main] com.sky.config.WebMvcConfiguration       : 开始注册自定义拦截器...
+21:14:22:774  INFO 17884 --- [main] com.sky.config.WebMvcConfiguration       : 准备生成接口文档...
+21:14:22:780  INFO 17884 --- [main] com.sky.config.WebMvcConfiguration       : 准备生成接口文档...
+21:14:22:828  INFO 17884 --- [main] com.sky.config.WebMvcConfiguration       : 扩展消息转换器...
+21:14:22:834  INFO 17884 --- [main] com.sky.config.WebMvcConfiguration       : 开始设置静态资源映射...
+21:14:23:451  INFO 17884 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+21:14:24:085  INFO 17884 --- [main] com.sky.SkyApplication                   : Started SkyApplication in 5.876 seconds (JVM running for 6.499)
+21:14:24:088  INFO 17884 --- [main] com.sky.SkyApplication                   : server started
+21:15:00:009  INFO 17884 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T21:15:00.009780700
+21:15:00:278 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+21:15:00:316 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:00:00.013327400(LocalDateTime)
+21:15:00:365 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+21:15:15:502  INFO 17884 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+21:15:15:502  INFO 17884 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+21:15:15:504  INFO 17884 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+21:15:15:592  INFO 17884 --- [http-nio-8080-exec-1] com.sky.controller.user.UserController   : 顾客登录,用户名：17818100976
+21:15:15:593 DEBUG 17884 --- [http-nio-8080-exec-1] com.sky.mapper.UserMapper.getByUsername  : ==>  Preparing: select * from user where username = ?
+21:15:15:594 DEBUG 17884 --- [http-nio-8080-exec-1] com.sky.mapper.UserMapper.getByUsername  : ==> Parameters: 17818100976(String)
+21:15:15:612 DEBUG 17884 --- [http-nio-8080-exec-1] com.sky.mapper.UserMapper.getByUsername  : <==      Total: 1
+21:16:00:003  INFO 17884 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T21:16:00.003047600
+21:16:00:003 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+21:16:00:004 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:01:00.003047600(LocalDateTime)
+21:16:00:008 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+21:17:00:010  INFO 17884 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T21:17:00.010507100
+21:17:00:042 ERROR 17884 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/sky_take_out?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true, jdbcUrl : jdbc:mysql://localhost:3306/sky_take_out?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true, lastPacketReceivedIdleMillis : 60009
+21:17:00:053 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+21:17:00:053 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:02:00.010507100(LocalDateTime)
+21:17:00:059 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+21:17:18:951  WARN 17884 --- [http-nio-8080-exec-4] o.s.web.servlet.PageNotFound             : No mapping for GET /
+21:17:19:669  WARN 17884 --- [http-nio-8080-exec-5] o.s.web.servlet.PageNotFound             : No mapping for GET /favicon.ico
+21:18:00:004  INFO 17884 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T21:18:00.004509500
+21:18:00:005 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+21:18:00:006 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:03:00.004509500(LocalDateTime)
+21:18:00:011 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+21:19:00:002  INFO 17884 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T21:19:00.002138700
+21:19:00:002 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+21:19:00:003 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:04:00.002138700(LocalDateTime)
+21:19:00:007 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+21:20:00:011  INFO 17884 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T21:20:00.011942
+21:20:00:013 ERROR 17884 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/sky_take_out?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true, jdbcUrl : jdbc:mysql://localhost:3306/sky_take_out?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true, lastPacketReceivedIdleMillis : 60006
+21:20:00:035 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+21:20:00:036 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:05:00.011942(LocalDateTime)
+21:20:00:040 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+21:21:00:012  INFO 17884 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T21:21:00.012867100
+21:21:00:013 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+21:21:00:014 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:06:00.013126(LocalDateTime)
+21:21:00:018 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+21:22:00:004  INFO 17884 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T21:22:00.004507200
+21:22:00:005 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+21:22:00:006 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:07:00.005496400(LocalDateTime)
+21:22:00:008 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+21:23:00:002  INFO 17884 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T21:23:00.002590100
+21:23:00:003 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+21:23:00:003 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:08:00.002590100(LocalDateTime)
+21:23:00:004 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+21:23:46:005  WARN 17884 --- [http-nio-8080-exec-7] o.s.web.servlet.PageNotFound             : No mapping for GET /
+21:24:00:007  INFO 17884 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T21:24:00.007234600
+21:24:00:008 ERROR 17884 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/sky_take_out?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true, jdbcUrl : jdbc:mysql://localhost:3306/sky_take_out?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true, lastPacketReceivedIdleMillis : 60004
+21:24:00:031 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+21:24:00:031 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:09:00.007234600(LocalDateTime)
+21:24:00:038 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+21:25:00:006  INFO 17884 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T21:25:00.006638500
+21:25:00:007 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+21:25:00:008 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:10:00.006638500(LocalDateTime)
+21:25:00:011 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+21:26:00:012  INFO 17884 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T21:26:00.012951300
+21:26:00:015 ERROR 17884 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/sky_take_out?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true, jdbcUrl : jdbc:mysql://localhost:3306/sky_take_out?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true, lastPacketReceivedIdleMillis : 60003
+21:26:00:029 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+21:26:00:030 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:11:00.012951300(LocalDateTime)
+21:26:00:036 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+21:27:00:002  INFO 17884 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T21:27:00.002493600
+21:27:00:003 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+21:27:00:004 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:12:00.003383700(LocalDateTime)
+21:27:00:006 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+21:28:00:013  INFO 17884 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T21:28:00.013588800
+21:28:00:016 ERROR 17884 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/sky_take_out?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true, jdbcUrl : jdbc:mysql://localhost:3306/sky_take_out?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true, lastPacketReceivedIdleMillis : 60009
+21:28:00:040 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+21:28:00:040 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:13:00.014584200(LocalDateTime)
+21:28:00:051 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+21:29:00:004  INFO 17884 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T21:29:00.004312100
+21:29:00:005 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+21:29:00:007 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:14:00.004312100(LocalDateTime)
+21:29:00:013 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+21:30:00:002  INFO 17884 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T21:30:00.002157100
+21:30:00:003 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+21:30:00:006 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:15:00.002157100(LocalDateTime)
+21:30:00:009 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+21:31:00:000  INFO 17884 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T21:31:00.000110900
+21:31:00:001 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+21:31:00:002 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:16:00.000110900(LocalDateTime)
+21:31:00:005 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+21:32:00:011  INFO 17884 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T21:32:00.011616100
+21:32:00:014 ERROR 17884 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/sky_take_out?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true, jdbcUrl : jdbc:mysql://localhost:3306/sky_take_out?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true, lastPacketReceivedIdleMillis : 60008
+21:32:00:037 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+21:32:00:038 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:17:00.012657500(LocalDateTime)
+21:32:00:049 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+21:33:00:004  INFO 17884 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T21:33:00.004613300
+21:33:00:005 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+21:33:00:007 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:18:00.005608200(LocalDateTime)
+21:33:00:009 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+21:34:00:010  INFO 17884 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T21:34:00.010792200
+21:34:00:011 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+21:34:00:011 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:19:00.010792200(LocalDateTime)
+21:34:00:014 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+21:35:00:015  INFO 17884 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T21:35:00.015190700
+21:35:00:017 ERROR 17884 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/sky_take_out?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true, jdbcUrl : jdbc:mysql://localhost:3306/sky_take_out?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true, lastPacketReceivedIdleMillis : 60003
+21:35:00:037 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+21:35:00:037 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:20:00.015190700(LocalDateTime)
+21:35:00:042 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+21:36:00:003  INFO 17884 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T21:36:00.003353100
+21:36:00:005 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+21:36:00:006 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:21:00.004352500(LocalDateTime)
+21:36:00:007 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+21:37:00:010  INFO 17884 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T21:37:00.010184900
+21:37:00:013 ERROR 17884 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/sky_take_out?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true, jdbcUrl : jdbc:mysql://localhost:3306/sky_take_out?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true, lastPacketReceivedIdleMillis : 60006
+21:37:00:024 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+21:37:00:026 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:22:00.010184900(LocalDateTime)
+21:37:00:030 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+21:38:00:011  INFO 17884 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T21:38:00.011931900
+21:38:00:013 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+21:38:00:013 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:23:00.011931900(LocalDateTime)
+21:38:00:016 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+21:39:00:002  INFO 17884 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T21:39:00.002198100
+21:39:00:003 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+21:39:00:003 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:24:00.002198100(LocalDateTime)
+21:39:00:005 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+21:40:00:003  INFO 17884 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T21:40:00.003196600
+21:40:00:007 ERROR 17884 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/sky_take_out?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true, jdbcUrl : jdbc:mysql://localhost:3306/sky_take_out?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true, lastPacketReceivedIdleMillis : 60002
+21:40:00:022 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+21:40:00:023 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:25:00.004282600(LocalDateTime)
+21:40:00:027 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+21:41:00:011  INFO 17884 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T21:41:00.011653500
+21:41:00:012 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+21:41:00:012 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:26:00.011653500(LocalDateTime)
+21:41:00:015 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+21:42:00:008  INFO 17884 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T21:42:00.008411400
+21:42:00:010 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+21:42:00:011 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:27:00.009447600(LocalDateTime)
+21:42:00:013 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+21:42:54:916  INFO 17884 --- [http-nio-8080-exec-9] c.s.interceptor.JwtTokenUserInterceptor  : jwt校验:http://localhost:8081/doc.html#/%E7%94%A8%E6%88%B7%E7%AB%AF%E6%8E%A5%E5%8F%A3/C%E7%AB%AF-%E5%A5%97%E9%A4%90%E6%B5%8F%E8%A7%88%E6%8E%A5%E5%8F%A3/listUsingGET_2
+21:43:00:011  INFO 17884 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T21:43:00.011208200
+21:43:00:011 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+21:43:00:011 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:28:00.011208200(LocalDateTime)
+21:43:00:014 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+21:43:14:962  INFO 17884 --- [http-nio-8080-exec-4] c.s.interceptor.JwtTokenUserInterceptor  : jwt校验:http://localhost:8081/doc.html#/%E7%94%A8%E6%88%B7%E7%AB%AF%E6%8E%A5%E5%8F%A3/C%E7%AB%AF-%E5%A5%97%E9%A4%90%E6%B5%8F%E8%A7%88%E6%8E%A5%E5%8F%A3/listUsingGET_2
+21:44:00:006  INFO 17884 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T21:44:00.006099800
+21:44:00:007 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+21:44:00:008 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:29:00.006099800(LocalDateTime)
+21:44:00:010 DEBUG 17884 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+21:44:31:653  INFO 17884 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+21:44:31:658  INFO 17884 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+21:44:34:739  INFO 36848 --- [main] com.sky.SkyApplication                   : Starting SkyApplication using Java 11.0.6 on LAPTOP-1JKR20AL with PID 36848 (D:\homework_and_information\my javaweb project\Project of skyTakeOut\back end\sky-take-out\sky-server\target\classes started by WB in D:\homework_and_information\my javaweb project\Project of skyTakeOut\back end\sky-take-out)
+21:44:34:742 DEBUG 36848 --- [main] com.sky.SkyApplication                   : Running with Spring Boot v2.7.3, Spring v5.3.22
+21:44:34:742  INFO 36848 --- [main] com.sky.SkyApplication                   : The following 1 profile is active: "-Xshare:off"
+21:44:35:712  INFO 36848 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+21:44:35:715  INFO 36848 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+21:44:35:742  INFO 36848 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
+21:44:36:825  INFO 36848 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+21:44:36:826  INFO 36848 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [2.0.6] using APR version [1.7.4].
+21:44:36:827  INFO 36848 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+21:44:36:827  INFO 36848 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+21:44:36:832  INFO 36848 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 3.0.11 19 Sep 2023]
+21:44:36:844  INFO 36848 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+21:44:36:844  INFO 36848 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+21:44:37:007  INFO 36848 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+21:44:37:007  INFO 36848 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2208 ms
+21:44:37:217  INFO 36848 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+21:44:37:379  INFO 36848 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+21:44:37:818  INFO 36848 --- [main] com.sky.config.OssConfiguration          : 开始创建阿里云文件上传工具类对象：AliOssProperties(endpoint=oss-cn-beijing.aliyuncs.com, accessKeyId=LTAI5tPotBJYHsucMnkFvcXo, accessKeySecret=G4o32EFv61KoA2eb35Uvifx6udH6VJ, bucketName=sky-take-out-wb333)
+21:44:38:117  INFO 36848 --- [main] com.sky.config.RedisConfiguration        : 开始创建redis模板对象...
+21:44:38:824  INFO 36848 --- [main] com.sky.config.WebMvcConfiguration       : 开始注册自定义拦截器...
+21:44:38:976  INFO 36848 --- [main] com.sky.config.WebMvcConfiguration       : 准备生成接口文档...
+21:44:38:985  INFO 36848 --- [main] com.sky.config.WebMvcConfiguration       : 准备生成接口文档...
+21:44:39:046  INFO 36848 --- [main] com.sky.config.WebMvcConfiguration       : 扩展消息转换器...
+21:44:39:055  INFO 36848 --- [main] com.sky.config.WebMvcConfiguration       : 开始设置静态资源映射...
+21:44:39:852  INFO 36848 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+21:44:40:702  INFO 36848 --- [main] com.sky.SkyApplication                   : Started SkyApplication in 6.456 seconds (JVM running for 7.286)
+21:44:40:706  INFO 36848 --- [main] com.sky.SkyApplication                   : server started
+21:45:00:009  INFO 36848 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T21:45:00.009821900
+21:45:00:179 DEBUG 36848 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+21:45:00:199 DEBUG 36848 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:30:00.012732400(LocalDateTime)
+21:45:00:220 DEBUG 36848 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+21:45:11:746  INFO 36848 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+21:45:11:746  INFO 36848 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+21:45:11:747  INFO 36848 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+21:45:11:760  INFO 36848 --- [http-nio-8080-exec-1] c.s.interceptor.JwtTokenUserInterceptor  : jwt校验:http://localhost:8081/doc.html#/%E7%94%A8%E6%88%B7%E7%AB%AF%E6%8E%A5%E5%8F%A3/C%E7%AB%AF-%E5%A5%97%E9%A4%90%E6%B5%8F%E8%A7%88%E6%8E%A5%E5%8F%A3/listUsingGET_2
+21:45:54:688  INFO 36848 --- [http-nio-8080-exec-7] c.s.interceptor.JwtTokenUserInterceptor  : jwt校验:eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NDExMDEzMTUsInVzZXJJZCI6Nn0.dkspS_BnIx4V3LQz0haHkbNDPmXze4Ei7Fl6dTVNnSs
+21:45:54:736  INFO 36848 --- [http-nio-8080-exec-7] c.s.interceptor.JwtTokenUserInterceptor  : 当前用户的id：
+21:45:54:762 ERROR 36848 --- [http-nio-8080-exec-7] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.IllegalArgumentException: Cannot find cache named 'setmealCache' for Builder[public com.sky.result.Result com.sky.controller.user.SetmealController.list(java.lang.Long)] caches=[setmealCache] | key='#categoryId' | keyGenerator='' | cacheManager='' | cacheResolver='' | condition='' | unless='' | sync='false'] with root cause
+
+java.lang.IllegalArgumentException: Cannot find cache named 'setmealCache' for Builder[public com.sky.result.Result com.sky.controller.user.SetmealController.list(java.lang.Long)] caches=[setmealCache] | key='#categoryId' | keyGenerator='' | cacheManager='' | cacheResolver='' | condition='' | unless='' | sync='false'
+	at org.springframework.cache.interceptor.AbstractCacheResolver.resolveCaches(AbstractCacheResolver.java:92) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.cache.interceptor.CacheAspectSupport.getCaches(CacheAspectSupport.java:252) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.cache.interceptor.CacheAspectSupport$CacheOperationContext.<init>(CacheAspectSupport.java:724) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.cache.interceptor.CacheAspectSupport.getOperationContext(CacheAspectSupport.java:265) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.cache.interceptor.CacheAspectSupport$CacheOperationContexts.<init>(CacheAspectSupport.java:615) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.cache.interceptor.CacheAspectSupport.execute(CacheAspectSupport.java:345) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.cache.interceptor.CacheInterceptor.invoke(CacheInterceptor.java:64) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.22.jar:5.3.22]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763) ~[spring-aop-5.3.22.jar:5.3.22]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:708) ~[spring-aop-5.3.22.jar:5.3.22]
+	at com.sky.controller.user.SetmealController$$EnhancerBySpringCGLIB$$16b3d9cf.list(<generated>) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1070) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+21:46:00:008  INFO 36848 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T21:46:00.008402400
+21:46:00:008 DEBUG 36848 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+21:46:00:010 DEBUG 36848 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:31:00.008402400(LocalDateTime)
+21:46:00:013 DEBUG 36848 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+21:47:00:011  INFO 36848 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T21:47:00.011495800
+21:47:00:013 DEBUG 36848 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+21:47:00:014 DEBUG 36848 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:32:00.011495800(LocalDateTime)
+21:47:00:021 DEBUG 36848 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+21:48:00:008  INFO 36848 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T21:48:00.008879700
+21:48:00:009 DEBUG 36848 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+21:48:00:010 DEBUG 36848 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:33:00.008879700(LocalDateTime)
+21:48:00:012 DEBUG 36848 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+21:49:00:005  INFO 36848 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T21:49:00.005568400
+21:49:00:006 DEBUG 36848 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+21:49:00:006 DEBUG 36848 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:34:00.005568400(LocalDateTime)
+21:49:00:008 DEBUG 36848 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+21:50:00:008  INFO 36848 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T21:50:00.008542700
+21:50:00:008 DEBUG 36848 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+21:50:00:010 DEBUG 36848 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:35:00.008542700(LocalDateTime)
+21:50:00:014 DEBUG 36848 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+21:51:00:004  INFO 36848 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T21:51:00.004264100
+21:51:00:004 DEBUG 36848 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+21:51:00:005 DEBUG 36848 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:36:00.004264100(LocalDateTime)
+21:51:00:006 DEBUG 36848 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+21:52:00:012  INFO 36848 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T21:52:00.012250700
+21:52:00:047 ERROR 36848 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/sky_take_out?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true, jdbcUrl : jdbc:mysql://localhost:3306/sky_take_out?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true, lastPacketReceivedIdleMillis : 60015
+21:52:00:059 DEBUG 36848 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+21:52:00:059 DEBUG 36848 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:37:00.012250700(LocalDateTime)
+21:52:00:062 DEBUG 36848 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+21:53:00:002  INFO 36848 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T21:53:00.002702800
+21:53:00:003 DEBUG 36848 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+21:53:00:003 DEBUG 36848 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:38:00.002702800(LocalDateTime)
+21:53:00:006 DEBUG 36848 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+21:54:00:012  INFO 36848 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T21:54:00.012238600
+21:54:00:015 ERROR 36848 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/sky_take_out?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true, jdbcUrl : jdbc:mysql://localhost:3306/sky_take_out?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true, lastPacketReceivedIdleMillis : 60009
+21:54:00:031 DEBUG 36848 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+21:54:00:031 DEBUG 36848 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:39:00.012238600(LocalDateTime)
+21:54:00:035 DEBUG 36848 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+21:55:00:004  INFO 36848 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T21:55:00.004437400
+21:55:00:004 DEBUG 36848 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+21:55:00:005 DEBUG 36848 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:40:00.004437400(LocalDateTime)
+21:55:00:007 DEBUG 36848 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+21:56:00:012  INFO 36848 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T21:56:00.012164300
+21:56:00:015 ERROR 36848 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/sky_take_out?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true, jdbcUrl : jdbc:mysql://localhost:3306/sky_take_out?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true, lastPacketReceivedIdleMillis : 60008
+21:56:00:031 DEBUG 36848 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+21:56:00:032 DEBUG 36848 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:41:00.013086500(LocalDateTime)
+21:56:00:035 DEBUG 36848 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+21:56:01:533  INFO 36848 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+21:56:01:536  INFO 36848 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+21:56:12:374  INFO 19736 --- [main] com.sky.SkyApplication                   : Starting SkyApplication using Java 11.0.6 on LAPTOP-1JKR20AL with PID 19736 (D:\homework_and_information\my javaweb project\Project of skyTakeOut\back end\sky-take-out\sky-server\target\classes started by WB in D:\homework_and_information\my javaweb project\Project of skyTakeOut\back end\sky-take-out)
+21:56:12:376 DEBUG 19736 --- [main] com.sky.SkyApplication                   : Running with Spring Boot v2.7.3, Spring v5.3.22
+21:56:12:376  INFO 19736 --- [main] com.sky.SkyApplication                   : The following 1 profile is active: "-Xshare:off"
+21:56:13:355  INFO 19736 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+21:56:13:358  INFO 19736 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+21:56:13:387  INFO 19736 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15 ms. Found 0 Redis repository interfaces.
+21:56:14:370  INFO 19736 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+21:56:14:371  INFO 19736 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [2.0.6] using APR version [1.7.4].
+21:56:14:372  INFO 19736 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+21:56:14:372  INFO 19736 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+21:56:14:377  INFO 19736 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 3.0.11 19 Sep 2023]
+21:56:14:386  INFO 19736 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+21:56:14:387  INFO 19736 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+21:56:14:512  INFO 19736 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+21:56:14:512  INFO 19736 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2094 ms
+21:56:14:715  INFO 19736 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+21:56:14:919  INFO 19736 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+21:56:15:263  INFO 19736 --- [main] com.sky.config.OssConfiguration          : 开始创建阿里云文件上传工具类对象：AliOssProperties(endpoint=oss-cn-beijing.aliyuncs.com, accessKeyId=LTAI5tPotBJYHsucMnkFvcXo, accessKeySecret=G4o32EFv61KoA2eb35Uvifx6udH6VJ, bucketName=sky-take-out-wb333)
+21:56:15:571  INFO 19736 --- [main] com.sky.config.RedisConfiguration        : 开始创建redis模板对象...
+21:56:16:343  INFO 19736 --- [main] com.sky.config.WebMvcConfiguration       : 开始注册自定义拦截器...
+21:56:16:520  INFO 19736 --- [main] com.sky.config.WebMvcConfiguration       : 准备生成接口文档...
+21:56:16:530  INFO 19736 --- [main] com.sky.config.WebMvcConfiguration       : 准备生成接口文档...
+21:56:16:612  INFO 19736 --- [main] com.sky.config.WebMvcConfiguration       : 扩展消息转换器...
+21:56:16:622  INFO 19736 --- [main] com.sky.config.WebMvcConfiguration       : 开始设置静态资源映射...
+21:56:17:600  INFO 19736 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+21:56:18:370  INFO 19736 --- [main] com.sky.SkyApplication                   : Started SkyApplication in 6.429 seconds (JVM running for 7.072)
+21:56:18:373  INFO 19736 --- [main] com.sky.SkyApplication                   : server started
+21:56:24:141  INFO 19736 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+21:56:24:142  INFO 19736 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+21:56:24:143  INFO 19736 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+21:56:24:160  INFO 19736 --- [http-nio-8080-exec-1] c.s.interceptor.JwtTokenUserInterceptor  : jwt校验:eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NDExMDEzMTUsInVzZXJJZCI6Nn0.dkspS_BnIx4V3LQz0haHkbNDPmXze4Ei7Fl6dTVNnSs
+21:56:24:214  INFO 19736 --- [http-nio-8080-exec-1] c.s.interceptor.JwtTokenUserInterceptor  : 当前用户的id：
+21:56:24:240 ERROR 19736 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.IllegalArgumentException: Cannot find cache named 'setmealCache' for Builder[public com.sky.result.Result com.sky.controller.user.SetmealController.list(java.lang.Long)] caches=[setmealCache] | key='#categoryId' | keyGenerator='' | cacheManager='' | cacheResolver='' | condition='' | unless='' | sync='false'] with root cause
+
+java.lang.IllegalArgumentException: Cannot find cache named 'setmealCache' for Builder[public com.sky.result.Result com.sky.controller.user.SetmealController.list(java.lang.Long)] caches=[setmealCache] | key='#categoryId' | keyGenerator='' | cacheManager='' | cacheResolver='' | condition='' | unless='' | sync='false'
+	at org.springframework.cache.interceptor.AbstractCacheResolver.resolveCaches(AbstractCacheResolver.java:92) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.cache.interceptor.CacheAspectSupport.getCaches(CacheAspectSupport.java:252) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.cache.interceptor.CacheAspectSupport$CacheOperationContext.<init>(CacheAspectSupport.java:724) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.cache.interceptor.CacheAspectSupport.getOperationContext(CacheAspectSupport.java:265) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.cache.interceptor.CacheAspectSupport$CacheOperationContexts.<init>(CacheAspectSupport.java:615) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.cache.interceptor.CacheAspectSupport.execute(CacheAspectSupport.java:345) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.cache.interceptor.CacheInterceptor.invoke(CacheInterceptor.java:64) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.22.jar:5.3.22]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763) ~[spring-aop-5.3.22.jar:5.3.22]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:708) ~[spring-aop-5.3.22.jar:5.3.22]
+	at com.sky.controller.user.SetmealController$$EnhancerBySpringCGLIB$$3642f64c.list(<generated>) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1070) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+21:57:00:013  INFO 19736 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T21:57:00.013741800
+21:57:00:208 DEBUG 19736 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+21:57:00:234 DEBUG 19736 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:42:00.013741800(LocalDateTime)
+21:57:00:258 DEBUG 19736 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+21:58:00:006  INFO 19736 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T21:58:00.006480300
+21:58:00:007 DEBUG 19736 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+21:58:00:009 DEBUG 19736 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:43:00.007474900(LocalDateTime)
+21:58:00:011 DEBUG 19736 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+21:59:00:010  INFO 19736 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T21:59:00.010132700
+21:59:00:011 DEBUG 19736 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+21:59:00:012 DEBUG 19736 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:44:00.010132700(LocalDateTime)
+21:59:00:014 DEBUG 19736 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+21:59:39:206  INFO 19736 --- [http-nio-8080-exec-4] c.s.interceptor.JwtTokenUserInterceptor  : jwt校验:eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NDExMDEzMTUsInVzZXJJZCI6Nn0.dkspS_BnIx4V3LQz0haHkbNDPmXze4Ei7Fl6dTVNnSs
+21:59:39:207  INFO 19736 --- [http-nio-8080-exec-4] c.s.interceptor.JwtTokenUserInterceptor  : 当前用户的id：
+21:59:39:208 ERROR 19736 --- [http-nio-8080-exec-4] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.IllegalArgumentException: Cannot find cache named 'setmealCache' for Builder[public com.sky.result.Result com.sky.controller.user.SetmealController.list(java.lang.Long)] caches=[setmealCache] | key='#categoryId' | keyGenerator='' | cacheManager='' | cacheResolver='' | condition='' | unless='' | sync='false'] with root cause
+
+java.lang.IllegalArgumentException: Cannot find cache named 'setmealCache' for Builder[public com.sky.result.Result com.sky.controller.user.SetmealController.list(java.lang.Long)] caches=[setmealCache] | key='#categoryId' | keyGenerator='' | cacheManager='' | cacheResolver='' | condition='' | unless='' | sync='false'
+	at org.springframework.cache.interceptor.AbstractCacheResolver.resolveCaches(AbstractCacheResolver.java:92) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.cache.interceptor.CacheAspectSupport.getCaches(CacheAspectSupport.java:252) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.cache.interceptor.CacheAspectSupport$CacheOperationContext.<init>(CacheAspectSupport.java:724) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.cache.interceptor.CacheAspectSupport.getOperationContext(CacheAspectSupport.java:265) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.cache.interceptor.CacheAspectSupport$CacheOperationContexts.<init>(CacheAspectSupport.java:615) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.cache.interceptor.CacheAspectSupport.execute(CacheAspectSupport.java:345) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.cache.interceptor.CacheInterceptor.invoke(CacheInterceptor.java:64) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.22.jar:5.3.22]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763) ~[spring-aop-5.3.22.jar:5.3.22]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:708) ~[spring-aop-5.3.22.jar:5.3.22]
+	at com.sky.controller.user.SetmealController$$EnhancerBySpringCGLIB$$3642f64c.list(<generated>) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1070) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+22:00:00:012  INFO 19736 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T22:00:00.012328500
+22:00:00:014 DEBUG 19736 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+22:00:00:015 DEBUG 19736 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:45:00.013324200(LocalDateTime)
+22:00:00:018 DEBUG 19736 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+22:01:00:016  INFO 19736 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T22:01:00.016279500
+22:01:00:017 DEBUG 19736 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+22:01:00:018 DEBUG 19736 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:46:00.017282600(LocalDateTime)
+22:01:00:020 DEBUG 19736 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+22:02:00:009  INFO 19736 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T22:02:00.009484200
+22:02:00:010 DEBUG 19736 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+22:02:00:011 DEBUG 19736 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:47:00.009484200(LocalDateTime)
+22:02:00:013 DEBUG 19736 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+22:03:00:008  INFO 19736 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T22:03:00.008853600
+22:03:00:008 DEBUG 19736 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+22:03:00:010 DEBUG 19736 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:48:00.008853600(LocalDateTime)
+22:03:00:012 DEBUG 19736 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+22:04:00:006  INFO 19736 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T22:04:00.006892100
+22:04:00:006 DEBUG 19736 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+22:04:00:006 DEBUG 19736 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:49:00.006892100(LocalDateTime)
+22:04:00:008 DEBUG 19736 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+22:05:00:002  INFO 19736 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T22:05:00.002894200
+22:05:00:003 DEBUG 19736 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+22:05:00:004 DEBUG 19736 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:50:00.002894200(LocalDateTime)
+22:05:00:006 DEBUG 19736 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+22:05:49:266  INFO 19736 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+22:05:49:272  INFO 19736 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+22:05:52:092  INFO 31712 --- [main] com.sky.SkyApplication                   : Starting SkyApplication using Java 11.0.6 on LAPTOP-1JKR20AL with PID 31712 (D:\homework_and_information\my javaweb project\Project of skyTakeOut\back end\sky-take-out\sky-server\target\classes started by WB in D:\homework_and_information\my javaweb project\Project of skyTakeOut\back end\sky-take-out)
+22:05:52:093 DEBUG 31712 --- [main] com.sky.SkyApplication                   : Running with Spring Boot v2.7.3, Spring v5.3.22
+22:05:52:095  INFO 31712 --- [main] com.sky.SkyApplication                   : The following 1 profile is active: "-Xshare:off"
+22:05:52:922  INFO 31712 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+22:05:52:924  INFO 31712 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+22:05:52:948  INFO 31712 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 0 Redis repository interfaces.
+22:05:53:796  INFO 31712 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+22:05:53:797  INFO 31712 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [2.0.6] using APR version [1.7.4].
+22:05:53:797  INFO 31712 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+22:05:53:797  INFO 31712 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+22:05:53:801  INFO 31712 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 3.0.11 19 Sep 2023]
+22:05:53:811  INFO 31712 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+22:05:53:811  INFO 31712 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+22:05:53:949  INFO 31712 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+22:05:53:949  INFO 31712 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1813 ms
+22:05:54:144  INFO 31712 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+22:05:54:305  INFO 31712 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+22:05:54:699  INFO 31712 --- [main] com.sky.config.OssConfiguration          : 开始创建阿里云文件上传工具类对象：AliOssProperties(endpoint=oss-cn-beijing.aliyuncs.com, accessKeyId=LTAI5tPotBJYHsucMnkFvcXo, accessKeySecret=G4o32EFv61KoA2eb35Uvifx6udH6VJ, bucketName=sky-take-out-wb333)
+22:05:54:983  INFO 31712 --- [main] com.sky.config.RedisConfiguration        : 开始创建redis模板对象...
+22:05:55:606  INFO 31712 --- [main] com.sky.config.WebMvcConfiguration       : 开始注册自定义拦截器...
+22:05:55:765  INFO 31712 --- [main] com.sky.config.WebMvcConfiguration       : 准备生成接口文档...
+22:05:55:775  INFO 31712 --- [main] com.sky.config.WebMvcConfiguration       : 准备生成接口文档...
+22:05:55:842  INFO 31712 --- [main] com.sky.config.WebMvcConfiguration       : 扩展消息转换器...
+22:05:55:851  INFO 31712 --- [main] com.sky.config.WebMvcConfiguration       : 开始设置静态资源映射...
+22:05:56:698  INFO 31712 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+22:05:57:471  INFO 31712 --- [main] com.sky.SkyApplication                   : Started SkyApplication in 5.84 seconds (JVM running for 6.477)
+22:05:57:475  INFO 31712 --- [main] com.sky.SkyApplication                   : server started
+22:06:00:005  INFO 31712 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T22:06:00.005696300
+22:06:00:201 DEBUG 31712 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+22:06:00:229 DEBUG 31712 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:51:00.007607(LocalDateTime)
+22:06:00:258 DEBUG 31712 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+22:06:08:513  INFO 31712 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+22:06:08:513  INFO 31712 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+22:06:08:514  INFO 31712 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+22:06:08:526  INFO 31712 --- [http-nio-8080-exec-1] c.s.interceptor.JwtTokenUserInterceptor  : jwt校验:eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NDExMDEzMTUsInVzZXJJZCI6Nn0.dkspS_BnIx4V3LQz0haHkbNDPmXze4Ei7Fl6dTVNnSs
+22:06:08:565  INFO 31712 --- [http-nio-8080-exec-1] c.s.interceptor.JwtTokenUserInterceptor  : 当前用户的id：
+22:06:08:632 DEBUG 31712 --- [http-nio-8080-exec-1] com.sky.mapper.SetmealMapper.list        : ==>  Preparing: select * from setmeal WHERE category_id = ? and status = ?
+22:06:08:633 DEBUG 31712 --- [http-nio-8080-exec-1] com.sky.mapper.SetmealMapper.list        : ==> Parameters: 1(Long), 1(Integer)
+22:06:08:649 DEBUG 31712 --- [http-nio-8080-exec-1] com.sky.mapper.SetmealMapper.list        : <==      Total: 0
+22:06:41:399  INFO 31712 --- [http-nio-8080-exec-2] c.s.interceptor.JwtTokenUserInterceptor  : jwt校验:eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NDExMDEzMTUsInVzZXJJZCI6Nn0.dkspS_BnIx4V3LQz0haHkbNDPmXze4Ei7Fl6dTVNnSs
+22:06:41:400  INFO 31712 --- [http-nio-8080-exec-2] c.s.interceptor.JwtTokenUserInterceptor  : 当前用户的id：
+22:06:41:401 DEBUG 31712 --- [http-nio-8080-exec-2] com.sky.mapper.SetmealMapper.list        : ==>  Preparing: select * from setmeal WHERE category_id = ? and status = ?
+22:06:41:402 DEBUG 31712 --- [http-nio-8080-exec-2] com.sky.mapper.SetmealMapper.list        : ==> Parameters: 2(Long), 1(Integer)
+22:06:41:403 DEBUG 31712 --- [http-nio-8080-exec-2] com.sky.mapper.SetmealMapper.list        : <==      Total: 0
+22:07:00:016  INFO 31712 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T22:07:00.016100300
+22:07:00:016 DEBUG 31712 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+22:07:00:017 DEBUG 31712 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:52:00.016609800(LocalDateTime)
+22:07:00:018 DEBUG 31712 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+22:07:03:093  INFO 31712 --- [http-nio-8080-exec-3] c.s.interceptor.JwtTokenUserInterceptor  : jwt校验:eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NDExMDEzMTUsInVzZXJJZCI6Nn0.dkspS_BnIx4V3LQz0haHkbNDPmXze4Ei7Fl6dTVNnSs
+22:07:03:094  INFO 31712 --- [http-nio-8080-exec-3] c.s.interceptor.JwtTokenUserInterceptor  : 当前用户的id：
+22:07:03:096 DEBUG 31712 --- [http-nio-8080-exec-3] com.sky.mapper.SetmealMapper.list        : ==>  Preparing: select * from setmeal WHERE category_id = ? and status = ?
+22:07:03:096 DEBUG 31712 --- [http-nio-8080-exec-3] com.sky.mapper.SetmealMapper.list        : ==> Parameters: 15(Long), 1(Integer)
+22:07:03:101 DEBUG 31712 --- [http-nio-8080-exec-3] com.sky.mapper.SetmealMapper.list        : <==      Total: 2
+22:08:00:008  INFO 31712 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T22:08:00.008406500
+22:08:00:008 DEBUG 31712 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+22:08:00:009 DEBUG 31712 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:53:00.008406500(LocalDateTime)
+22:08:00:010 DEBUG 31712 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+22:09:00:013  INFO 31712 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T22:09:00.013080500
+22:09:00:030 ERROR 31712 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/sky_take_out?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true, jdbcUrl : jdbc:mysql://localhost:3306/sky_take_out?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true, lastPacketReceivedIdleMillis : 60006
+22:09:00:042 DEBUG 31712 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+22:09:00:042 DEBUG 31712 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:54:00.013080500(LocalDateTime)
+22:09:00:046 DEBUG 31712 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+22:09:34:613  INFO 31712 --- [http-nio-8080-exec-5] c.s.interceptor.JwtTokenUserInterceptor  : jwt校验:eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NDExMDEzMTUsInVzZXJJZCI6Nn0.dkspS_BnIx4V3LQz0haHkbNDPmXze4Ei7Fl6dTVNnSs
+22:09:34:615  INFO 31712 --- [http-nio-8080-exec-5] c.s.interceptor.JwtTokenUserInterceptor  : 当前用户的id：
+22:10:00:006  INFO 31712 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T22:10:00.006918100
+22:10:00:007 DEBUG 31712 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+22:10:00:007 DEBUG 31712 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:55:00.006918100(LocalDateTime)
+22:10:00:009 DEBUG 31712 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+22:11:00:003  INFO 31712 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T22:11:00.003414700
+22:11:00:004 DEBUG 31712 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+22:11:00:005 DEBUG 31712 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:56:00.003414700(LocalDateTime)
+22:11:00:006 DEBUG 31712 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+22:12:00:011  INFO 31712 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T22:12:00.011175900
+22:12:00:014 ERROR 31712 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/sky_take_out?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true, jdbcUrl : jdbc:mysql://localhost:3306/sky_take_out?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true, lastPacketReceivedIdleMillis : 60007
+22:12:00:030 DEBUG 31712 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+22:12:00:031 DEBUG 31712 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:57:00.011175900(LocalDateTime)
+22:12:00:034 DEBUG 31712 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+22:13:00:014  INFO 31712 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T22:13:00.014084200
+22:13:00:015 DEBUG 31712 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+22:13:00:016 DEBUG 31712 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:58:00.014084200(LocalDateTime)
+22:13:00:017 DEBUG 31712 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+22:14:00:007  INFO 31712 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T22:14:00.007849700
+22:14:00:007 DEBUG 31712 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+22:14:00:008 DEBUG 31712 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T21:59:00.007849700(LocalDateTime)
+22:14:00:009 DEBUG 31712 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+22:15:00:001  INFO 31712 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T22:15:00.001890900
+22:15:00:001 DEBUG 31712 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+22:15:00:002 DEBUG 31712 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T22:00:00.001890900(LocalDateTime)
+22:15:00:006 DEBUG 31712 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+22:16:00:008  INFO 31712 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T22:16:00.008156800
+22:16:00:010 ERROR 31712 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/sky_take_out?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true, jdbcUrl : jdbc:mysql://localhost:3306/sky_take_out?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true, lastPacketReceivedIdleMillis : 60004
+22:16:00:027 DEBUG 31712 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+22:16:00:028 DEBUG 31712 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T22:01:00.008156800(LocalDateTime)
+22:16:00:030 DEBUG 31712 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+22:17:00:015  INFO 31712 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T22:17:00.015255200
+22:17:00:016 DEBUG 31712 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+22:17:00:017 DEBUG 31712 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T22:02:00.015255200(LocalDateTime)
+22:17:00:019 DEBUG 31712 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+22:18:00:001  INFO 31712 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T22:18:00.001399900
+22:18:00:006 DEBUG 31712 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+22:18:00:008 DEBUG 31712 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T22:03:00.001399900(LocalDateTime)
+22:18:00:012 DEBUG 31712 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+22:19:00:009  INFO 31712 --- [scheduling-1] com.sky.task.OrderTask                   : 定时处理超时订单：2025-03-04T22:19:00.009160700
+22:19:00:010 DEBUG 31712 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==>  Preparing: select * from orders where status = ? and order_time < ?
+22:19:00:010 DEBUG 31712 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : ==> Parameters: 1(Integer), 2025-03-04T22:04:00.009160700(LocalDateTime)
+22:19:00:011 DEBUG 31712 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
+22:19:52:319  INFO 31712 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+22:19:52:324  INFO 31712 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed

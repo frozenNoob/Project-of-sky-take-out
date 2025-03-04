@@ -11,3 +11,6 @@
 ![只用Redis](assets/pic2.png)
 
 可以看出，Redis缓存改为二级缓存后，qps提高了36%，平均响应时间减少了40%（从原来的125ms变为74ms)。
+
+
+- 2025-3-4 修复SpringCache集成Caffeine后的错误，并且初步使用Nacos，成功拆分店铺模块（`item-service`)，已验证过部分接口证明拆分成功。
