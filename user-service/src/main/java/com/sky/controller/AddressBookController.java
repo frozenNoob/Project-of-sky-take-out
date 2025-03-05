@@ -1,4 +1,4 @@
-package com.sky.controller.user;
+package com.sky.controller;
 
 import com.sky.context.BaseContext;
 import com.sky.entity.AddressBook;
@@ -8,6 +8,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @CrossOrigin

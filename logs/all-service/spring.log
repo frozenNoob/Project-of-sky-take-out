@@ -32,7 +32,7 @@
 21:15:15:502  INFO 17884 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 21:15:15:502  INFO 17884 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 21:15:15:504  INFO 17884 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-21:15:15:592  INFO 17884 --- [http-nio-8080-exec-1] com.sky.controller.user.UserController   : 顾客登录,用户名：17818100976
+21:15:15:592  INFO 17884 --- [http-nio-8080-exec-1] com.sky.controller.UserController   : 顾客登录,用户名：17818100976
 21:15:15:593 DEBUG 17884 --- [http-nio-8080-exec-1] com.sky.mapper.UserMapper.getByUsername  : ==>  Preparing: select * from user where username = ?
 21:15:15:594 DEBUG 17884 --- [http-nio-8080-exec-1] com.sky.mapper.UserMapper.getByUsername  : ==> Parameters: 17818100976(String)
 21:15:15:612 DEBUG 17884 --- [http-nio-8080-exec-1] com.sky.mapper.UserMapper.getByUsername  : <==      Total: 1
@@ -205,9 +205,9 @@
 21:45:11:760  INFO 36848 --- [http-nio-8080-exec-1] c.s.interceptor.JwtTokenUserInterceptor  : jwt校验:http://localhost:8081/doc.html#/%E7%94%A8%E6%88%B7%E7%AB%AF%E6%8E%A5%E5%8F%A3/C%E7%AB%AF-%E5%A5%97%E9%A4%90%E6%B5%8F%E8%A7%88%E6%8E%A5%E5%8F%A3/listUsingGET_2
 21:45:54:688  INFO 36848 --- [http-nio-8080-exec-7] c.s.interceptor.JwtTokenUserInterceptor  : jwt校验:eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NDExMDEzMTUsInVzZXJJZCI6Nn0.dkspS_BnIx4V3LQz0haHkbNDPmXze4Ei7Fl6dTVNnSs
 21:45:54:736  INFO 36848 --- [http-nio-8080-exec-7] c.s.interceptor.JwtTokenUserInterceptor  : 当前用户的id：
-21:45:54:762 ERROR 36848 --- [http-nio-8080-exec-7] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.IllegalArgumentException: Cannot find cache named 'setmealCache' for Builder[public com.sky.result.Result com.sky.controller.user.SetmealController.list(java.lang.Long)] caches=[setmealCache] | key='#categoryId' | keyGenerator='' | cacheManager='' | cacheResolver='' | condition='' | unless='' | sync='false'] with root cause
+21:45:54:762 ERROR 36848 --- [http-nio-8080-exec-7] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.IllegalArgumentException: Cannot find cache named 'setmealCache' for Builder[public com.sky.result.Result com.sky.controller.SetmealController.list(java.lang.Long)] caches=[setmealCache] | key='#categoryId' | keyGenerator='' | cacheManager='' | cacheResolver='' | condition='' | unless='' | sync='false'] with root cause
 
-java.lang.IllegalArgumentException: Cannot find cache named 'setmealCache' for Builder[public com.sky.result.Result com.sky.controller.user.SetmealController.list(java.lang.Long)] caches=[setmealCache] | key='#categoryId' | keyGenerator='' | cacheManager='' | cacheResolver='' | condition='' | unless='' | sync='false'
+java.lang.IllegalArgumentException: Cannot find cache named 'setmealCache' for Builder[public com.sky.result.Result com.sky.controller.SetmealController.list(java.lang.Long)] caches=[setmealCache] | key='#categoryId' | keyGenerator='' | cacheManager='' | cacheResolver='' | condition='' | unless='' | sync='false'
 	at org.springframework.cache.interceptor.AbstractCacheResolver.resolveCaches(AbstractCacheResolver.java:92) ~[spring-context-5.3.22.jar:5.3.22]
 	at org.springframework.cache.interceptor.CacheAspectSupport.getCaches(CacheAspectSupport.java:252) ~[spring-context-5.3.22.jar:5.3.22]
 	at org.springframework.cache.interceptor.CacheAspectSupport$CacheOperationContext.<init>(CacheAspectSupport.java:724) ~[spring-context-5.3.22.jar:5.3.22]
@@ -218,7 +218,7 @@ java.lang.IllegalArgumentException: Cannot find cache named 'setmealCache' for B
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.22.jar:5.3.22]
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763) ~[spring-aop-5.3.22.jar:5.3.22]
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:708) ~[spring-aop-5.3.22.jar:5.3.22]
-	at com.sky.controller.user.SetmealController$$EnhancerBySpringCGLIB$$16b3d9cf.list(<generated>) ~[classes/:na]
+	at com.sky.controller.SetmealController$$EnhancerBySpringCGLIB$$16b3d9cf.list(<generated>) ~[classes/:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
@@ -343,9 +343,9 @@ java.lang.IllegalArgumentException: Cannot find cache named 'setmealCache' for B
 21:56:24:143  INFO 19736 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
 21:56:24:160  INFO 19736 --- [http-nio-8080-exec-1] c.s.interceptor.JwtTokenUserInterceptor  : jwt校验:eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NDExMDEzMTUsInVzZXJJZCI6Nn0.dkspS_BnIx4V3LQz0haHkbNDPmXze4Ei7Fl6dTVNnSs
 21:56:24:214  INFO 19736 --- [http-nio-8080-exec-1] c.s.interceptor.JwtTokenUserInterceptor  : 当前用户的id：
-21:56:24:240 ERROR 19736 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.IllegalArgumentException: Cannot find cache named 'setmealCache' for Builder[public com.sky.result.Result com.sky.controller.user.SetmealController.list(java.lang.Long)] caches=[setmealCache] | key='#categoryId' | keyGenerator='' | cacheManager='' | cacheResolver='' | condition='' | unless='' | sync='false'] with root cause
+21:56:24:240 ERROR 19736 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.IllegalArgumentException: Cannot find cache named 'setmealCache' for Builder[public com.sky.result.Result com.sky.controller.SetmealController.list(java.lang.Long)] caches=[setmealCache] | key='#categoryId' | keyGenerator='' | cacheManager='' | cacheResolver='' | condition='' | unless='' | sync='false'] with root cause
 
-java.lang.IllegalArgumentException: Cannot find cache named 'setmealCache' for Builder[public com.sky.result.Result com.sky.controller.user.SetmealController.list(java.lang.Long)] caches=[setmealCache] | key='#categoryId' | keyGenerator='' | cacheManager='' | cacheResolver='' | condition='' | unless='' | sync='false'
+java.lang.IllegalArgumentException: Cannot find cache named 'setmealCache' for Builder[public com.sky.result.Result com.sky.controller.SetmealController.list(java.lang.Long)] caches=[setmealCache] | key='#categoryId' | keyGenerator='' | cacheManager='' | cacheResolver='' | condition='' | unless='' | sync='false'
 	at org.springframework.cache.interceptor.AbstractCacheResolver.resolveCaches(AbstractCacheResolver.java:92) ~[spring-context-5.3.22.jar:5.3.22]
 	at org.springframework.cache.interceptor.CacheAspectSupport.getCaches(CacheAspectSupport.java:252) ~[spring-context-5.3.22.jar:5.3.22]
 	at org.springframework.cache.interceptor.CacheAspectSupport$CacheOperationContext.<init>(CacheAspectSupport.java:724) ~[spring-context-5.3.22.jar:5.3.22]
@@ -356,7 +356,7 @@ java.lang.IllegalArgumentException: Cannot find cache named 'setmealCache' for B
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.22.jar:5.3.22]
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763) ~[spring-aop-5.3.22.jar:5.3.22]
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:708) ~[spring-aop-5.3.22.jar:5.3.22]
-	at com.sky.controller.user.SetmealController$$EnhancerBySpringCGLIB$$3642f64c.list(<generated>) ~[classes/:na]
+	at com.sky.controller.SetmealController$$EnhancerBySpringCGLIB$$3642f64c.list(<generated>) ~[classes/:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
@@ -414,9 +414,9 @@ java.lang.IllegalArgumentException: Cannot find cache named 'setmealCache' for B
 21:59:00:014 DEBUG 19736 --- [scheduling-1] c.s.m.O.getByStatusAndOrderTimeLT        : <==      Total: 0
 21:59:39:206  INFO 19736 --- [http-nio-8080-exec-4] c.s.interceptor.JwtTokenUserInterceptor  : jwt校验:eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3NDExMDEzMTUsInVzZXJJZCI6Nn0.dkspS_BnIx4V3LQz0haHkbNDPmXze4Ei7Fl6dTVNnSs
 21:59:39:207  INFO 19736 --- [http-nio-8080-exec-4] c.s.interceptor.JwtTokenUserInterceptor  : 当前用户的id：
-21:59:39:208 ERROR 19736 --- [http-nio-8080-exec-4] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.IllegalArgumentException: Cannot find cache named 'setmealCache' for Builder[public com.sky.result.Result com.sky.controller.user.SetmealController.list(java.lang.Long)] caches=[setmealCache] | key='#categoryId' | keyGenerator='' | cacheManager='' | cacheResolver='' | condition='' | unless='' | sync='false'] with root cause
+21:59:39:208 ERROR 19736 --- [http-nio-8080-exec-4] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.IllegalArgumentException: Cannot find cache named 'setmealCache' for Builder[public com.sky.result.Result com.sky.controller.SetmealController.list(java.lang.Long)] caches=[setmealCache] | key='#categoryId' | keyGenerator='' | cacheManager='' | cacheResolver='' | condition='' | unless='' | sync='false'] with root cause
 
-java.lang.IllegalArgumentException: Cannot find cache named 'setmealCache' for Builder[public com.sky.result.Result com.sky.controller.user.SetmealController.list(java.lang.Long)] caches=[setmealCache] | key='#categoryId' | keyGenerator='' | cacheManager='' | cacheResolver='' | condition='' | unless='' | sync='false'
+java.lang.IllegalArgumentException: Cannot find cache named 'setmealCache' for Builder[public com.sky.result.Result com.sky.controller.SetmealController.list(java.lang.Long)] caches=[setmealCache] | key='#categoryId' | keyGenerator='' | cacheManager='' | cacheResolver='' | condition='' | unless='' | sync='false'
 	at org.springframework.cache.interceptor.AbstractCacheResolver.resolveCaches(AbstractCacheResolver.java:92) ~[spring-context-5.3.22.jar:5.3.22]
 	at org.springframework.cache.interceptor.CacheAspectSupport.getCaches(CacheAspectSupport.java:252) ~[spring-context-5.3.22.jar:5.3.22]
 	at org.springframework.cache.interceptor.CacheAspectSupport$CacheOperationContext.<init>(CacheAspectSupport.java:724) ~[spring-context-5.3.22.jar:5.3.22]
@@ -427,7 +427,7 @@ java.lang.IllegalArgumentException: Cannot find cache named 'setmealCache' for B
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.22.jar:5.3.22]
 	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763) ~[spring-aop-5.3.22.jar:5.3.22]
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:708) ~[spring-aop-5.3.22.jar:5.3.22]
-	at com.sky.controller.user.SetmealController$$EnhancerBySpringCGLIB$$3642f64c.list(<generated>) ~[classes/:na]
+	at com.sky.controller.SetmealController$$EnhancerBySpringCGLIB$$3642f64c.list(<generated>) ~[classes/:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
