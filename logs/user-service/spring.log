@@ -1,5 +1,5 @@
-15:19:01:752  INFO 44596 --- [main] com.sky.UserApplication                  : Starting UserApplication using Java 11.0.6 on LAPTOP-1JKR20AL with PID 44596 (D:\homework_and_information\my javaweb project\Project of skyTakeOut\back end\sky-take-out\user-service\target\classes started by WB in D:\homework_and_information\my javaweb project\Project of skyTakeOut\back end\sky-take-out)
-15:19:01:755  INFO 44596 --- [main] com.sky.UserApplication                  : The following 1 profile is active: "-Xshare:off"
+15:19:01:752  INFO 44596 --- [main] com.sky.AdminApplication                  : Starting UserApplication using Java 11.0.6 on LAPTOP-1JKR20AL with PID 44596 (D:\homework_and_information\my javaweb project\Project of skyTakeOut\back end\sky-take-out\user-service\target\classes started by WB in D:\homework_and_information\my javaweb project\Project of skyTakeOut\back end\sky-take-out)
+15:19:01:755  INFO 44596 --- [main] com.sky.AdminApplication                  : The following 1 profile is active: "-Xshare:off"
 15:19:02:756  INFO 44596 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
 15:19:02:759  INFO 44596 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
 15:19:02:784  INFO 44596 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 0 Redis repository interfaces.
@@ -46,18 +46,18 @@
 15:19:11:112  INFO 44596 --- [nacos-grpc-client-executor-9] com.alibaba.nacos.common.remote.client   : [9cf9188e-be1c-4be0-9a18-71407c310308] Receive server push request, request = NotifySubscriberRequest, requestId = 20
 15:19:11:117  INFO 44596 --- [nacos-grpc-client-executor-9] com.alibaba.nacos.common.remote.client   : [9cf9188e-be1c-4be0-9a18-71407c310308] Ack server push request, request = NotifySubscriberRequest, requestId = 20
 15:19:11:842  INFO 44596 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
-15:19:12:175  INFO 44596 --- [main] com.sky.UserApplication                  : Started UserApplication in 12.223 seconds (JVM running for 13.282)
-15:19:12:177  INFO 44596 --- [main] com.sky.UserApplication                  : server started
+15:19:12:175  INFO 44596 --- [main] com.sky.AdminApplication                  : Started UserApplication in 12.223 seconds (JVM running for 13.282)
+15:19:12:177  INFO 44596 --- [main] com.sky.AdminApplication                  : server started
 15:19:14:379  INFO 44596 --- [http-nio-8083-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 15:19:14:379  INFO 44596 --- [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 15:19:14:380  INFO 44596 --- [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
 15:19:15:322  WARN 44596 --- [http-nio-8083-exec-9] o.s.web.servlet.PageNotFound             : No mapping for GET /favicon.ico
-15:21:12:994  INFO 44596 --- [http-nio-8083-exec-9] com.sky.controller.UserController        : 顾客登录,用户名：123456
+15:21:12:994  INFO 44596 --- [http-nio-8083-exec-9] com.sky.controller.user.UserController        : 顾客登录,用户名：123456
 15:21:13:256 ERROR 44596 --- [http-nio-8083-exec-9] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is com.sky.exception.AccountNotFoundException: 账号不存在] with root cause
 
 com.sky.exception.AccountNotFoundException: 账号不存在
 	at com.sky.service.impl.UserServiceImpl.login(UserServiceImpl.java:45) ~[classes/:na]
-	at com.sky.controller.UserController.login(UserController.java:43) ~[classes/:na]
+	at com.sky.controller.user.UserController.login(UserController.java:43) ~[classes/:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
@@ -101,14 +101,14 @@ com.sky.exception.AccountNotFoundException: 账号不存在
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
 	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
 
-15:21:59:483  INFO 44596 --- [http-nio-8083-exec-1] com.sky.controller.UserController        : 顾客登录,用户名：17818100976
-15:23:30:567  INFO 44596 --- [http-nio-8083-exec-2] com.sky.controller.UserController        : 顾客登录,用户名：123456
+15:21:59:483  INFO 44596 --- [http-nio-8083-exec-1] com.sky.controller.user.UserController        : 顾客登录,用户名：17818100976
+15:23:30:567  INFO 44596 --- [http-nio-8083-exec-2] com.sky.controller.user.UserController        : 顾客登录,用户名：123456
 15:23:30:590 ERROR 44596 --- [http-nio-8083-exec-2] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://localhost:3306/sky-user?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true, jdbcUrl : jdbc:mysql://localhost:3306/sky-user?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true, lastPacketReceivedIdleMillis : 91085
 15:23:30:610 ERROR 44596 --- [http-nio-8083-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is com.sky.exception.AccountNotFoundException: 账号不存在] with root cause
 
 com.sky.exception.AccountNotFoundException: 账号不存在
 	at com.sky.service.impl.UserServiceImpl.login(UserServiceImpl.java:45) ~[classes/:na]
-	at com.sky.controller.UserController.login(UserController.java:43) ~[classes/:na]
+	at com.sky.controller.user.UserController.login(UserController.java:43) ~[classes/:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
@@ -152,12 +152,12 @@ com.sky.exception.AccountNotFoundException: 账号不存在
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
 	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
 
-15:24:00:919  INFO 44596 --- [http-nio-8083-exec-10] com.sky.controller.UserController        : 顾客登录,用户名：123456
+15:24:00:919  INFO 44596 --- [http-nio-8083-exec-10] com.sky.controller.user.UserController        : 顾客登录,用户名：123456
 15:24:00:921 ERROR 44596 --- [http-nio-8083-exec-10] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is com.sky.exception.AccountNotFoundException: 账号不存在] with root cause
 
 com.sky.exception.AccountNotFoundException: 账号不存在
 	at com.sky.service.impl.UserServiceImpl.login(UserServiceImpl.java:45) ~[classes/:na]
-	at com.sky.controller.UserController.login(UserController.java:43) ~[classes/:na]
+	at com.sky.controller.user.UserController.login(UserController.java:43) ~[classes/:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]

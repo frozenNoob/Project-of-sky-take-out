@@ -1,4 +1,4 @@
-package com.sky.controller;
+package com.sky.controller.user;
 
 import com.sky.dto.OrdersSubmitDTO;
 import com.sky.result.PageResult;

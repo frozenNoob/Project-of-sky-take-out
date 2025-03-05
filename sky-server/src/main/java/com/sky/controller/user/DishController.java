@@ -1,4 +1,4 @@
-package com.sky.controller;
+package com.sky.controller.user;
 
 import com.github.benmanes.caffeine.cache.Cache;
 import com.sky.constant.StatusConstant;

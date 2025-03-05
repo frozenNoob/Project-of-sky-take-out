@@ -65,18 +65,18 @@
                 <version>${mybatis.spring}</version>
             </dependency>
 
-<!--            <dependency>-->
-<!--                <groupId>org.springframework</groupId>-->
-<!--                <artifactId>spring-test</artifactId>-->
-<!--                <version>5.3.22</version>-->
-<!--            </dependency>-->
-<!--           和spring-test:5.3.22遇到冲突，导致Redis的Junit无法正常使用???事实上就算二者取其一都回遇上不同的bug，这个问题有待解决！！-->
-<!--            &lt;!&ndash; https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-websocket &ndash;&gt;-->
-<!--            <dependency>-->
-<!--                <groupId>org.apache.tomcat.embed</groupId>-->
-<!--                <artifactId>tomcat-embed-websocket</artifactId>-->
-<!--                <version>9.0.65</version>-->
-<!--            </dependency>-->
+            <!--            <dependency>-->
+            <!--                <groupId>org.springframework</groupId>-->
+            <!--                <artifactId>spring-test</artifactId>-->
+            <!--                <version>5.3.22</version>-->
+            <!--            </dependency>-->
+            <!--           和spring-test:5.3.22遇到冲突，导致Redis的Junit无法正常使用???事实上就算二者取其一都回遇上不同的bug，这个问题有待解决！！-->
+            <!--            &lt;!&ndash; https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-websocket &ndash;&gt;-->
+            <!--            <dependency>-->
+            <!--                <groupId>org.apache.tomcat.embed</groupId>-->
+            <!--                <artifactId>tomcat-embed-websocket</artifactId>-->
+            <!--                <version>9.0.65</version>-->
+            <!--            </dependency>-->
 
             <dependency>
                 <groupId>org.projectlombok</groupId>
