@@ -6,3 +6,4 @@
 
 **/resources/application-*.yml
 **/test/
+**/logs/

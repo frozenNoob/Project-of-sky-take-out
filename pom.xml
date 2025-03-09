@@ -15,9 +15,13 @@
     <modules>
         <module>sky-common</module>
         <module>sky-pojo</module>
-        <module>sky-server</module>
+        <module>sky-api</module>
+        <module>sky-gateway</module>
         <module>item-service</module>
         <module>user-service</module>
+        <module>admin-service</module>
+        <module>order-service</module>
+        <module>cart-service</module>
     </modules>
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
@@ -39,6 +43,7 @@
         <jaxb-api>2.3.1</jaxb-api>
         <poi>3.16</poi>
         <caffeine>2.9.1</caffeine>
+        <hutool>5.8.16</hutool>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -167,6 +172,29 @@
                 <artifactId>caffeine</artifactId>
                 <version>${caffeine}</version>
             </dependency>
+            <!--hutool工具包，用于JSON格式字符串与Java类对象之间互相转换，或者使用BeanUtil-->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <!--    控制Maven-complier插件所用的版本-->
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.8.1</version>
+                    <configuration>
+                        <source>${maven.compiler.source}</source> <!-- depending on your project -->
+                        <target>${maven.compiler.target}</target> <!-- depending on your project -->
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 </project>

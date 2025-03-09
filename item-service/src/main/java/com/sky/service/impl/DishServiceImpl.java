@@ -1,5 +1,6 @@
 package com.sky.service.impl;
 
+import cn.hutool.core.bean.BeanUtil;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.sky.constant.MessageConstant;
@@ -26,6 +27,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @Slf4j
@@ -48,8 +50,8 @@ public class DishServiceImpl implements DishService {
     @Transactional(isolation = Isolation.DEFAULT)
     public void saveWithFlavor(DishDTO dishDTO) {
 
+        //Dish dish = BeanUtil.copyProperties(dishDTO, Dish.class);
         Dish dish = new Dish();
-
         BeanUtils.copyProperties(dishDTO, dish);
 
         //向菜品表插入1条数据

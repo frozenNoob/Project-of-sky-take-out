@@ -1,3 +1,0 @@
-17:09:19:768  INFO 15060 --- [main] com.sky.test.HttpClientTest              : Starting HttpClientTest using Java 11.0.6 on LAPTOP-1JKR20AL with PID 15060 (started by WB in D:\homework_and_information\my javaweb project\Project of skyTakeOut\back end\sky-take-out\sky-server)
-17:09:19:769 DEBUG 15060 --- [main] com.sky.test.HttpClientTest              : Running with Spring Boot v2.7.3, Spring v5.3.22
-17:09:19:769  INFO 15060 --- [main] com.sky.test.HttpClientTest              : No active profile set, falling back to 1 default profile: "default"

@@ -79,7 +79,7 @@ logging:
   pattern:
     dateformat: HH:mm:ss:SSS
   file:
-    path: "logs/${spring.application.name}"
+    name: "logs/${spring.application.name}.log"
 
 sky:
   jwt:
