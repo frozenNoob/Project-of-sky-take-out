@@ -2,7 +2,6 @@ package com.sky.controller.user;
 
 import com.github.benmanes.caffeine.cache.Cache;
 import com.sky.constant.StatusConstant;
-import com.sky.dto.DishDTO;
 import com.sky.entity.Dish;
 import com.sky.mapper.DishMapper;
 import com.sky.result.Result;

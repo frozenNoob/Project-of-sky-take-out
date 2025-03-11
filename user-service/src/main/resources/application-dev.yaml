@@ -1,0 +1,23 @@
+sky:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    host: localhost
+    port: 3306
+    database: sky-user
+    username: root
+    password: 1234
+
+  redis:
+    host: localhost
+    port: 6379
+    password: 123456
+    database: 0
+  jwt:
+    user-secret-key: itheima
+    user-ttl: 7200000
+    user-token-name: token
+  #    user-token-name: authentication
+  caffeine:
+    expire-after-write: 120
+    initial-capacity: 50
+    maximum-size: 500

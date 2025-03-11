@@ -7,7 +7,8 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-@FeignClient(value = "item-service", path = "/user", configuration = DefaultFeignConfig.class)
+@FeignClient(value = "item-service", path = "/user",
+        configuration = {DefaultFeignConfig.class})
 public interface ItemClient {
     @GetMapping("/dish/{id}")
     Dish getDishById(@PathVariable("id") Long dishId);

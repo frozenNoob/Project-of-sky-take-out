@@ -1,7 +1,6 @@
 package com.sky.controller.user;
 
 import com.sky.constant.StatusConstant;
-import com.sky.entity.Dish;
 import com.sky.entity.Setmeal;
 import com.sky.mapper.SetmealMapper;
 import com.sky.result.Result;

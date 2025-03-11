@@ -2,13 +2,6 @@ server:
   port: 8084
 
 spring:
-  application:
-    name: admin-service
-  #    正确的导入作法
-  config:
-    import: classpath:application-dev.yml
-  main:
-    allow-circular-references: true
   # 配置多个MySQL数据源
   datasource:
     item:
@@ -33,34 +26,11 @@ spring:
       type: com.alibaba.druid.pool.DruidDataSource
 
     default:
-      driver-class-name: ${sky.datasource.default.driver-class-name}
+      driver-class-name: com.mysql.cj.jdbc.Driver
       jdbc-url: jdbc:mysql://${sky.datasource.default.host}:${sky.datasource.default.port}/${sky.datasource.default.database}?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
       username: ${sky.datasource.default.username}
       password: ${sky.datasource.default.password}
       type: com.alibaba.druid.pool.DruidDataSource
-  redis:
-    host: ${sky.redis.host}
-    port: ${sky.redis.port}
-    password: ${sky.redis.password}
-    database: ${sky.redis.database}
-  cache: # Spring cache使用的配置，即@Cache需要用到
-    # 程序启动时创建的缓存名称（逗号分隔）,不建议设置，通常，这会禁用动态创建其他缓存的能力
-    #    cache-names: spring-cache-1
-    # 缓存类型 org.springframework.boot.autoconfigure.cache.CacheType
-    type: caffeine
-    redis:
-      # 缓存前缀
-      key-prefix: "SPRING_CACHE:"
-      # 写入 Caffeine 时是否使用前缀 默认:true
-      use-key-prefix: true
-      # 允许缓存空值 默认: true, 可也防止缓存穿透问题
-      cache-null-values: true
-      # 缓存过期时间, 单位: 毫秒
-      time-to-live: 300000
-  cloud:
-    nacos:
-      discovery:
-        server-addr: 192.168.139.132:8848
 
 mybatis:
   #mapper配置文件
@@ -73,13 +43,6 @@ mybatis:
     #开启驼峰命名
     map-underscore-to-camel-case: true
 
-logging:
-  level:
-    com.sky.item: debug
-  pattern:
-    dateformat: HH:mm:ss:SSS
-  file:
-    name: "logs/${spring.application.name}.log"
 
 sky:
   jwt:
@@ -89,22 +52,3 @@ sky:
     admin-ttl: ${sky.jwt.admin-ttl}
     # 设置前端传递过来的令牌名称
     admin-token-name: ${sky.jwt.admin-token-name}
-
-    user-secret-key: ${sky.jwt.user-secret-key}
-    user-ttl: ${sky.jwt.user-ttl}
-    user-token-name: ${sky.jwt.user-token-name}
-  #    user-token-name: authentication
-  alioss:
-    endpoint: ${sky.alioss.endpoint}
-    access-key-id: ${sky.alioss.access-key-id}
-    access-key-secret: ${sky.alioss.access-key-secret}
-    bucket-name: ${sky.alioss.bucket-name}
-  caffeine:
-    expire-after-write: ${sky.caffeine.expire-after-write}
-    initial-capacity: ${sky.caffeine.initial-capacity}
-    maximum-size: ${sky.caffeine.maximum-size}
-  shop:
-    address: 北京市海淀区上地十街10号
-  baidu:
-    ak: your-ak
-

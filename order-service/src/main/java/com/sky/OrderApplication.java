@@ -15,7 +15,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableCaching//开发缓存注解功能
 @EnableScheduling //开启任务调度
 //开启OpenFeign,以简化对其他服务的访问操作
-@EnableFeignClients(basePackages = "com.sky.api.client", defaultConfiguration = DefaultFeignConfig.class)
+@EnableFeignClients(basePackages = "com.sky.api.client",
+        defaultConfiguration = {DefaultFeignConfig.class})
 public class OrderApplication {
     public static void main(String[] args) {
         SpringApplication.run(OrderApplication.class, args);
