@@ -4,6 +4,7 @@ import com.sky.constant.JwtClaimsConstant;
 import com.sky.dto.UserDTO;
 import com.sky.dto.UserLoginDTO;
 import com.sky.entity.User;
+import com.sky.properties.CaffeineProperties;
 import com.sky.properties.JwtProperties;
 import com.sky.result.Result;
 import com.sky.service.UserService;
@@ -30,6 +31,8 @@ public class UserController {
     @Autowired
     private JwtProperties jwtProperties;
 
+    @Autowired
+    private CaffeineProperties caffeineProperties;
     /**
      * 顾客登录
      * @param userLoginDTO
@@ -38,7 +41,7 @@ public class UserController {
     @PostMapping("/login")
     @ApiOperation("顾客登录")
     public Result<UserLoginVO> login(@RequestBody UserLoginDTO userLoginDTO){
-
+        int a = caffeineProperties.getMaximumSize();
         log.info("顾客登录,用户名：{}",userLoginDTO.getUsername());
         //顾客登录
         User user = userService.login(userLoginDTO);

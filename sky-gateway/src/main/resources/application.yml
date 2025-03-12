@@ -17,30 +17,6 @@ sky:
     user-ttl: ${sky.jwt.user-ttl}
     user-token-name: ${sky.jwt.user-token-name}
     #    user-token-name: authentication
-spring:
-  cloud:
-    gateway:
-      routes:
-        - id: order
-          uri: lb://order-service
-          predicates:
-            - Path=/*/order/**
-        - id: item # 路由规则id，自定义，唯一
-          uri: lb://item-service # 路由的目标服务，lb代表负载均衡，会从注册中心拉取服务列表
-          predicates: # 路由断言，判断当前请求是否符合当前规则，符合则路由到目标服务
-            - Path=/*/category/**, /*/setmeal/**, /*/dish/**, /*/shop/** # 这里是以请求路径作为判断规则
-        - id: cart
-          uri: lb://cart-service
-          predicates:
-            - Path=/user/shoppingCart/**
-        - id: user
-          uri: lb://user-service
-          predicates:
-            - Path=/user/user/**,/user/addressBook/**
-        - id: admin
-          uri: lb://admin-service
-          predicates:
-            - Path=/admin/employee/**, /admin/workspace/**, /admin/report/**, /admin/common/**,
 
 
 

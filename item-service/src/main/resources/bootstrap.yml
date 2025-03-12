@@ -11,7 +11,11 @@ spring:
       config:
         shared-configs: # 共享配置
           - data-id: shared-jdbc.yaml # 共享jdbc配置
+            refresh: true
           - data-id: shared-log.yaml # 共享日志配置
+            refresh: true
           - data-id: shared-cache.yaml # SpringCache和Redis
+            refresh: true
           - data-id: shared-caffeine.yaml # Caffeine
+            refresh: true
 

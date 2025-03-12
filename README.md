@@ -1,4 +1,4 @@
-# Project-of-sky-take-out( **micro-service Architecture** )
+# Project-of-sky-take-out( **Microservice Architecture** )
 
 把双端（B端和C端）的外卖平台的单体架构改为微服务架构。
 相关的更详细的文档：https://fcneheqzlq8n.feishu.cn/wiki/ZKlXwNEAmi2AVOkUTkRcCfSjnng
@@ -22,4 +22,6 @@
 - 2025-3-11 加入filter的路由功能和替换连接池。并成功联调不同的微服务，包括网关转发给一个微服务以及微服务之间的互相调用。
 - 2025-3-12 在Nacos注册中心添加和拉取共享配置以简化`.yml`文件的编写。共享配置的设置如下图所示：
 ![Nacos共享配置图](assets/shared_config.png)
+并配置普通属性的热更新和动态路由的热更新,部分图如下:
+![动态路由](assets/dynamicRouter.png)
 
