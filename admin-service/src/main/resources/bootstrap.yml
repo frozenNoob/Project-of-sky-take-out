@@ -9,8 +9,9 @@ spring:
     nacos:
       server-addr: 192.168.139.132:8848 # nacos地址
       config:
-
         shared-configs: # 共享配置
           - data-id: shared-log.yaml # 共享日志配置
-          - data-id: shared-cache.yaml # SpringCache，Caffeine和Redis
+          - data-id: shared-cache.yaml # SpringCache和Redis
+          - data-id: shared-caffeine.yaml # Caffeine
           - data-id: shared-alioss.yaml # 阿里云OSS
+
