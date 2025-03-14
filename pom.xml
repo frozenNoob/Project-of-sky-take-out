@@ -185,9 +185,23 @@
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql.version}</version>
             </dependency>
+            <!--            使用org.apache.commons.lang3.StringUtils;-->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.7</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
-
+    <dependencies>
+        <!--单元测试-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
     <!--    控制Maven-complier插件所用的版本-->
     <build>
         <pluginManagement>
@@ -204,4 +218,6 @@
             </plugins>
         </pluginManagement>
     </build>
+
+
 </project>
