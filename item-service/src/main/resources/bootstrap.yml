@@ -18,4 +18,6 @@ spring:
             refresh: true
           - data-id: shared-caffeine.yaml # Caffeine
             refresh: true
+          - data-id: shared-seata.yaml # 分布式事务共享配置
+            refresh: true
 

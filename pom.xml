@@ -202,22 +202,6 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-    <!--    控制Maven-complier插件所用的版本-->
-    <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.8.1</version>
-                    <configuration>
-                        <source>${maven.compiler.source}</source> <!-- depending on your project -->
-                        <target>${maven.compiler.target}</target> <!-- depending on your project -->
-                    </configuration>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-    </build>
 
 
 </project>

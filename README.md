@@ -24,4 +24,4 @@
 ![Nacos共享配置图](assets/shared_config.png)
 并配置普通属性的热更新和动态路由的热更新,部分图如下:
 ![动态路由](assets/dynamicRouter.png)
-
+- 2025-3-14 添加Sentinel失败，但是利用Seata成功实现基础的分布式事务的XA或AT模式

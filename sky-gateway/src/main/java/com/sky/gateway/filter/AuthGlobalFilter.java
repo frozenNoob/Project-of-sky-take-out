@@ -42,6 +42,8 @@ public class AuthGlobalFilter implements GlobalFilter, Ordered {
         if (isExclude(request.getPath().toString())) {
             // 无需拦截，直接放行
             return chain.filter(exchange);
+
+
         }
         // 3.获取请求头中的token
         String token = null;

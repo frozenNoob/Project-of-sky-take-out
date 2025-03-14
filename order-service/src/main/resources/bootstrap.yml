@@ -18,3 +18,6 @@ spring:
             refresh: true
           - data-id: shared-address.yaml # 阿里云OSS和baidu 的ak等
             refresh: true
+          - data-id: shared-seata.yaml # 分布式事务共享配置
+            refresh: true
+

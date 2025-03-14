@@ -26,6 +26,7 @@ import com.sky.vo.OrderStatisticsVO;
 import com.sky.vo.OrderSubmitVO;
 import com.sky.vo.OrderVO;
 import com.sky.websocket.WebSocketServer;
+import io.seata.spring.annotation.GlobalTransactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
@@ -57,6 +58,7 @@ public class OrderServiceImpl implements OrderService {
      * @param ordersSubmitDTO
      * @return
      */
+    @GlobalTransactional
     @Transactional
     public OrderSubmitVO submitOrder(OrdersSubmitDTO ordersSubmitDTO) {
 
@@ -89,7 +91,7 @@ public class OrderServiceImpl implements OrderService {
         orders.setConsignee(addressBook.getConsignee());
         orders.setUserId(BaseContext.getCurrentId());
 
-        orderMapper.insert(orders);
+        insertOrders(orders);
 
         List<OrderDetail> orderDetailList = new ArrayList<>();
         //3. 向订单明细表插入n条数据
@@ -99,8 +101,7 @@ public class OrderServiceImpl implements OrderService {
             orderDetail.setOrderId(orders.getId());//设置当前订单明细关联的订单id
             orderDetailList.add(orderDetail);
         }
-
-        orderDetailMapper.insertBatch(orderDetailList);
+        insertOrderDetailByBatch(orderDetailList);
 
         //4. 清空当前用户的购物车数据
         shoppingCartClient.clean();
@@ -116,6 +117,22 @@ public class OrderServiceImpl implements OrderService {
         return orderSubmitVO;
     }
 
+    // 建立分支事务，交由RM管理
+    @Transactional
+    public void insertOrders(Orders orders){
+        try{
+        orderMapper.insert(orders);
+        }catch (RuntimeException e){
+            log.error(e.toString());
+            throw e;
+        }
+    }
+
+    // 建立分支事务，交由RM管理
+    @Transactional
+    public void insertOrderDetailByBatch(List<OrderDetail> orderDetailList){
+        orderDetailMapper.insertBatch(orderDetailList);
+    }
     @Value("${sky.shop.address}")
     private String shopAddress;
 
