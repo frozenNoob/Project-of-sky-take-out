@@ -32,7 +32,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
 import java.time.LocalDateTime;
@@ -40,6 +39,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 @Service
@@ -58,9 +58,8 @@ public class OrderServiceImpl implements OrderService {
      * @param ordersSubmitDTO
      * @return
      */
-    @GlobalTransactional
-    @Transactional
-    public OrderSubmitVO submitOrder(OrdersSubmitDTO ordersSubmitDTO) {
+    @GlobalTransactional //本身就是一个事务
+    public OrderSubmitVO submitOrder(OrdersSubmitDTO ordersSubmitDTO) throws InterruptedException {
 
         //1. 处理各种业务异常（地址簿为空、购物车数据为空）
         AddressBook addressBook = userClient.getAddressById(ordersSubmitDTO.getAddressBookId()).getData();
@@ -106,6 +105,12 @@ public class OrderServiceImpl implements OrderService {
         //4. 清空当前用户的购物车数据
         shoppingCartClient.clean();
 
+        // 模拟出错（比如后面需要清除商品库存）
+        if( 1 == 0){
+            TimeUnit.SECONDS.sleep(10);//等待10秒
+            log.error("模拟出错，以测试Seata的GlobalLock");
+            throw new RuntimeException("模拟出错，以测试Seata的GlobalLock");
+        }
         //5. 封装VO返回结果
         OrderSubmitVO orderSubmitVO = OrderSubmitVO.builder()
                 .id(orders.getId())
@@ -117,8 +122,6 @@ public class OrderServiceImpl implements OrderService {
         return orderSubmitVO;
     }
 
-    // 建立分支事务，交由RM管理
-    @Transactional
     public void insertOrders(Orders orders){
         try{
         orderMapper.insert(orders);
@@ -128,8 +131,6 @@ public class OrderServiceImpl implements OrderService {
         }
     }
 
-    // 建立分支事务，交由RM管理
-    @Transactional
     public void insertOrderDetailByBatch(List<OrderDetail> orderDetailList){
         orderDetailMapper.insertBatch(orderDetailList);
     }

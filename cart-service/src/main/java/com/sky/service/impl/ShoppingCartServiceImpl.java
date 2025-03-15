@@ -1,18 +1,19 @@
 package com.sky.service.impl;
 
 import com.sky.api.client.ItemClient;
-import com.sky.vo.ShoppingCart;
-
 import com.sky.context.BaseContext;
 import com.sky.dto.ShoppingCartDTO;
 import com.sky.entity.Dish;
 import com.sky.entity.Setmeal;
 import com.sky.mapper.ShoppingCartMapper;
 import com.sky.service.ShoppingCartService;
+import com.sky.vo.ShoppingCart;
+import io.seata.spring.annotation.GlobalLock;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
@@ -73,8 +74,12 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
      * 查看购物车
      * @return
      */
+    // 配置重试间隔为100ms，次数为100次。即最多等待10秒
+    @GlobalLock(lockRetryInterval = 100, lockRetryTimes = 100)
+    // 设置可重复读，因为需要对应上select for update语句，不然无法解决这种场景（只有一个select）下的幻读的问题。
+    @Transactional(isolation = Isolation.REPEATABLE_READ)
     public List<ShoppingCart> showShoppingCart() {
-        //获取到当前微信用户的id
+        //获取到当前用户的id
         Long userId = BaseContext.getCurrentId();
         ShoppingCart shoppingCart = ShoppingCart.builder()
                 .userId(userId)

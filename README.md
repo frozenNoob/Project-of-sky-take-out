@@ -11,7 +11,9 @@
 只用Redis时：
 ![只用Redis](assets/pic2.png)
 
-可以看出，Redis缓存改为二级缓存后，qps提高了36%，平均响应时间减少了40%（从原来的125ms变为74ms)。
+在Apifox的性能测试中，设置并发用户数为100的设定下持续1分钟，
+可以看出，Redis缓存改为二级缓存后，
+qps提高了36%，平均响应时间减少了40%（从原来的125ms变为74ms)。
 
 
 - 2025-3-4 修复SpringCache集成Caffeine后的错误，并且初步使用Nacos，成功拆分得到店铺模块（`item-service`)，已验证过部分接口证明拆分成功。
@@ -24,4 +26,5 @@
 ![Nacos共享配置图](assets/shared_config.png)
 并配置普通属性的热更新和动态路由的热更新,部分图如下:
 ![动态路由](assets/dynamicRouter.png)
-- 2025-3-14 添加Sentinel失败，但是利用Seata成功实现基础的分布式事务的XA或AT模式
+- 2025-3-15 添加Sentinel失败，但是利用Seata成功实现基础的分布式事务的XA或AT模式，
+并添加`GLobalLock`和设置`select for update`防止数据的脏读（脏写添加`GlobalLock`即可）。

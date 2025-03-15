@@ -3,8 +3,9 @@ server:
   tomcat:
     threads:
       max: 50 # 允许的最大线程数
-    accept-count: 50 # 最大排队等待数量
-    max-connections: 100 # 允许的最大连接
+      min-spare: 10  # 最小工作空闲线程数，默认10, 适当增大一些，以便应对突然增长的访问量
+    accept-count: 50 # 最大排队等待数量（等待队列的最大长度）
+    max-connections: 101 # 允许的最大连接,超过次数就需要排队
 feign:
   okhttp:
     enabled: true # 开启OKHttp连接池支持

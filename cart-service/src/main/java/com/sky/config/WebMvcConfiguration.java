@@ -1,5 +1,6 @@
 package com.sky.config;
 
+import com.alibaba.cloud.seata.web.SeataHandlerInterceptor;
 import com.sky.interceptor.JwtTokenUserInterceptor;
 import com.sky.json.JacksonObjectMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -40,6 +41,8 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
         registry.addInterceptor(jwtTokenUserInterceptor)
                 .addPathPatterns("/user/**")
                 .excludePathPatterns("/user/user/login", "/user/user");
+        // 为了Seata能够正确地传递xid
+        registry.addInterceptor(new SeataHandlerInterceptor());
     }
 
     @Bean
