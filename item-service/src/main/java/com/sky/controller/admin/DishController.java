@@ -155,9 +155,12 @@ public class DishController {
      */
     private void cleanCache(String pattern) {
         Set keys = redisTemplate.keys(pattern);
+        //删除Redis缓存
+        Long existKeyCount = redisTemplate.delete(keys);//被移除的键的数量。在管道(pipeline)事务中为null。
+        if(existKeyCount != null && existKeyCount == 0){
+            throw new RuntimeException("Redis中不存在对应键,故删除失败");
+        }
         //删除Caffeine缓存
-        caffeineCache.invalidate(keys);
-        //再删除Redis缓存
-        redisTemplate.delete(keys);
+        caffeineCache.invalidate(keys);//不存在对应键的时候不会抛出异常
     }
 }

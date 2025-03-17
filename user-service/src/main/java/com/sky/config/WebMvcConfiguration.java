@@ -1,5 +1,6 @@
 package com.sky.config;
 
+import com.alibaba.csp.sentinel.adapter.spring.webmvc.SentinelWebInterceptor;
 import com.sky.interceptor.JwtTokenUserInterceptor;
 import com.sky.json.JacksonObjectMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -40,8 +41,9 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
         log.info("开始注册自定义拦截器...");
 
         registry.addInterceptor(jwtTokenUserInterceptor)
-                .addPathPatterns("/**")
                 .excludePathPatterns("/user/user/login");
+        registry.addInterceptor(new SentinelWebInterceptor());
+
     }
 
     @Bean

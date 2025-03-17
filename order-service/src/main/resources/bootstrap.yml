@@ -20,4 +20,6 @@ spring:
             refresh: true
           - data-id: shared-seata.yaml # 分布式事务共享配置
             refresh: true
+          - data-id: shared-sentinel.yaml # Sentinel作流控
+            refresh: true
 

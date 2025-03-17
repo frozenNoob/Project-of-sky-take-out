@@ -1,6 +1,7 @@
 package com.sky.config;
 
 import com.alibaba.cloud.seata.web.SeataHandlerInterceptor;
+import com.alibaba.csp.sentinel.adapter.spring.webmvc.SentinelWebInterceptor;
 import com.sky.interceptor.JwtTokenUserInterceptor;
 import com.sky.json.JacksonObjectMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -39,10 +40,11 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
         log.info("开始注册自定义拦截器...");
 
         registry.addInterceptor(jwtTokenUserInterceptor)
-                .addPathPatterns("/user/**")
                 .excludePathPatterns("/user/user/login", "/user/user");
         // 为了Seata能够正确地传递xid
         registry.addInterceptor(new SeataHandlerInterceptor());
+        // 为了Sentinel能够正常在控制台中显示
+        registry.addInterceptor(new SentinelWebInterceptor());
     }
 
     @Bean

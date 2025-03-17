@@ -19,7 +19,6 @@
                 and dish_flavor = #{dishFlavor}
             </if>
         </where>
-        FOR UPDATE
     </select>
 
     <insert id="insertBatch" parameterType="list">

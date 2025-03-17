@@ -1,5 +1,6 @@
 package com.sky.config;
 
+import com.alibaba.csp.sentinel.adapter.spring.webmvc.SentinelWebInterceptor;
 import com.sky.interceptor.JwtTokenAdminInterceptor;
 import com.sky.interceptor.JwtTokenUserInterceptor;
 import com.sky.json.JacksonObjectMapper;
@@ -47,6 +48,8 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
                 .addPathPatterns("/user/**")
                 .excludePathPatterns("/user/user/login", "/user/user")
                 .excludePathPatterns("/user/shop/status");//这个不需要用户ID
+
+        registry.addInterceptor(new SentinelWebInterceptor());
     }
 
     @Bean

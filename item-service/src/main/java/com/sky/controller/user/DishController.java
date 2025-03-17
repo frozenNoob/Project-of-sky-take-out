@@ -42,7 +42,7 @@ public class DishController {
     @GetMapping("/list")
     @ApiOperation("根据分类id查询菜品")
     public Result<List<DishVO>> list(Long categoryId) {
-        if(categoryId == null){
+        if (categoryId == null) {
             throw new RuntimeException("数据为空");
         }
         //构造redis中的key，规则：dish_分类id
@@ -71,6 +71,7 @@ public class DishController {
         list = dishService.listWithFlavor(dish);
         caffeineCache.put(key, list);
         redisTemplate.opsForValue().set(key, list);
+
         return Result.success(list);
     }
 
@@ -88,10 +89,10 @@ public class DishController {
     }
 
     /*
-    * 根据菜品id查询菜品
+     * 根据菜品id查询菜品
      */
     @GetMapping("/{id}")
-    public Dish getDishById(@PathVariable("id") Long dishId){
+    public Dish getDishById(@PathVariable("id") Long dishId) {
         return dishMapper.getById(dishId);
     }
 

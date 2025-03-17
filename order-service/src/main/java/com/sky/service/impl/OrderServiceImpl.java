@@ -58,7 +58,7 @@ public class OrderServiceImpl implements OrderService {
      * @param ordersSubmitDTO
      * @return
      */
-    @GlobalTransactional //本身就是一个事务
+    @GlobalTransactional(rollbackFor = Throwable.class, timeoutMills = 120000) //经过测试，其本身就是一个事务
     public OrderSubmitVO submitOrder(OrdersSubmitDTO ordersSubmitDTO) throws InterruptedException {
 
         //1. 处理各种业务异常（地址簿为空、购物车数据为空）

@@ -27,4 +27,7 @@ qps提高了36%，平均响应时间减少了40%（从原来的125ms变为74ms)�
 并配置普通属性的热更新和动态路由的热更新,部分图如下:
 ![动态路由](assets/dynamicRouter.png)
 - 2025-3-15 添加Sentinel失败，但是利用Seata成功实现基础的分布式事务的XA或AT模式，
-并添加`GLobalLock`和设置`select for update`防止数据的脏读（脏写添加`GlobalLock`即可）。
+并添加`GLobalLock`和设置`select for update`防止AT模式下数据的脏读（脏写添加`GlobalLock`即可）。
+虽然`GlobalLock`失效了，但是利用`GlobalTransactional`一样可以达到`GlobalLock`的作用（**成功防止脏读**），只是性能消耗会更大。
+- 2025-3-17 添加Sentinel成功,并补充了一些Redis和Caffeine二级缓存中的处理逻辑。
+![Sentinel.png](assets/SentinelDashboard.png)

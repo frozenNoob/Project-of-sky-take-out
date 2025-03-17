@@ -34,6 +34,7 @@ public class ShopController {
         log.info("设置店铺的营业状态为：{}", status == 1 ? "营业中" : "打烊中");
 
         caffeineCache.put(KEY, status);
+
         redisTemplate.opsForValue().set(KEY, status);
         return Result.success();
     }

@@ -8,7 +8,6 @@ import com.sky.entity.Setmeal;
 import com.sky.mapper.ShoppingCartMapper;
 import com.sky.service.ShoppingCartService;
 import com.sky.vo.ShoppingCart;
-import io.seata.spring.annotation.GlobalLock;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
@@ -74,8 +73,8 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
      * 查看购物车
      * @return
      */
-    // 配置重试间隔为100ms，次数为100次。即最多等待10秒
-    @GlobalLock(lockRetryInterval = 100, lockRetryTimes = 100)
+    // 配置重试间隔为100ms，次数为100次。即最多等待10秒(无效)
+    //@GlobalLock(lockRetryInterval = 100, lockRetryTimes = 100)
     // 设置可重复读，因为需要对应上select for update语句，不然无法解决这种场景（只有一个select）下的幻读的问题。
     @Transactional(isolation = Isolation.REPEATABLE_READ)
     public List<ShoppingCart> showShoppingCart() {

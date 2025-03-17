@@ -3,3 +3,10 @@ server:
 feign:
   okhttp:
     enabled: true # 开启OKHttp连接池支持
+spring:
+  cloud:
+    sentinel:
+      transport:
+        dashboard: localhost:8090 # sentinel的控制台地址
+      http-method-specify: true # 是否设置请求方式作为资源名称
+      eager: true
