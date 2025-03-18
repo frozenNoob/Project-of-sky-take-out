@@ -31,3 +31,5 @@ qps提高了36%，平均响应时间减少了40%（从原来的125ms变为74ms)�
 虽然`GlobalLock`失效了，但是利用`GlobalTransactional`一样可以达到`GlobalLock`的作用（**成功防止脏读**），只是性能消耗会更大。
 - 2025-3-17 添加Sentinel成功,并补充了一些Redis和Caffeine二级缓存中的处理逻辑。
 ![Sentinel.png](assets/SentinelDashboard.png)
+
+- 2025-3-18 补充了一些Sentinel降级逻辑，在服务熔断时能够返回一些默认数据，用户体验会更好。

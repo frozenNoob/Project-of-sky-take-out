@@ -1,5 +1,6 @@
 package com.sky.api.client;
 
+import com.sky.api.client.fallback.ShoppingCartClientFallBack;
 import com.sky.api.dto.ShoppingCart;
 import com.sky.result.Result;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -12,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.util.List;
 
 @Component
-@FeignClient(value = "cart-service", path = "/user/shoppingCart")
+@FeignClient(value = "cart-service",
+        path = "/user/shoppingCart",
+        fallbackFactory = ShoppingCartClientFallBack.class)
 public interface ShoppingCartClient {
 
     @GetMapping("/list")

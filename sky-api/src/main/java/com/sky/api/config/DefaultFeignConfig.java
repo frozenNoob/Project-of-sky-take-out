@@ -1,5 +1,6 @@
 package com.sky.api.config;
 
+import com.sky.api.client.fallback.ShoppingCartClientFallBack;
 import com.sky.constant.JwtClaimsConstant;
 import com.sky.context.BaseContext;
 import feign.Logger;
@@ -29,6 +30,11 @@ public class DefaultFeignConfig{
                 }
             }
         };
+    }
+
+    @Bean
+    public ShoppingCartClientFallBack shoppingCartClientFallBack(){
+        return new ShoppingCartClientFallBack();
     }
 
 }
