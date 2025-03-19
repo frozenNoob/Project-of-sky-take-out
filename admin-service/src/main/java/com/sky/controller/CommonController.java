@@ -24,7 +24,6 @@ import java.util.UUID;
 @Slf4j
 public class CommonController {
 
-
     @Autowired
     private AliOssUtil aliOssUtil;
     /**

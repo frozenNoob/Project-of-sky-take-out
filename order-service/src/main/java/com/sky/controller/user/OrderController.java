@@ -1,8 +1,8 @@
 package com.sky.controller.user;
 
+import com.sky.api.dto.Result;
 import com.sky.dto.OrdersSubmitDTO;
 import com.sky.result.PageResult;
-import com.sky.result.Result;
 import com.sky.service.OrderService;
 import com.sky.vo.OrderSubmitVO;
 import com.sky.vo.OrderVO;

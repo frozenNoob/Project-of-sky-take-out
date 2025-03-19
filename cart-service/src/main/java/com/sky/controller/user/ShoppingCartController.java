@@ -1,10 +1,10 @@
 package com.sky.controller.user;
 
-import com.sky.vo.ShoppingCart;
 
+import com.sky.api.dto.Result;
+import com.sky.api.dto.ShoppingCart;
 import com.sky.dto.ShoppingCartDTO;
 import com.sky.mapper.ShoppingCartMapper;
-import com.sky.result.Result;
 import com.sky.service.ShoppingCartService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

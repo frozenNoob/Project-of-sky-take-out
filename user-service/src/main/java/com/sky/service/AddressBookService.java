@@ -1,6 +1,6 @@
 package com.sky.service;
 
-import com.sky.entity.AddressBook;
+import com.sky.api.dto.AddressBook;
 
 import java.util.List;
 

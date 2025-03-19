@@ -1,6 +1,6 @@
 package com.sky.mapper;
 
-import com.sky.entity.AddressBook;
+import com.sky.api.dto.AddressBook;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;

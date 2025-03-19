@@ -1,9 +1,9 @@
 package com.sky.api.client.fallback;
 
 import com.sky.api.client.ShoppingCartClient;
+import com.sky.api.dto.Result;
 import com.sky.api.dto.ShoppingCart;
 import com.sky.exception.ShoppingCartBusinessException;
-import com.sky.result.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.openfeign.FallbackFactory;
 

@@ -46,17 +46,29 @@ public class AuthGlobalFilter implements GlobalFilter, Ordered {
 
         }
         // 3.获取请求头中的token
+        Boolean isUserToken = true;
         String token = null;
         List<String> headers = request.getHeaders().get(jwtProperties.getUserTokenName());
-        if (!CollectionUtil.isEmpty(headers)) {
+        if (!CollectionUtil.isEmpty(headers)) {// 要么是用户的
             token = headers.get(0);
+        } else {
+            headers = request.getHeaders().get(jwtProperties.getAdminTokenName());
+            // 要么是管理员的
+            if (headers != null && !headers.isEmpty()) {//等效于!CollectionUtil.isEmpty判断
+                token = headers.get(0);
+                isUserToken = false;
+            }
         }
         // 4.校验并解析token
         String userId;
         try {
-            log.info("jwt校验:{}", token);
-            Claims claims = JwtTool.parseJWT(jwtProperties.getUserSecretKey(), token);
-            userId = claims.get(JwtClaimsConstant.USER_ID).toString();
+            if (isUserToken) {
+                Claims claims = JwtTool.parseJWT(jwtProperties.getUserSecretKey(), token);
+                userId = claims.get(JwtClaimsConstant.USER_ID).toString();
+            }else{
+                Claims claims = JwtTool.parseJWT(jwtProperties.getAdminSecretKey(), token);
+                userId = claims.get(JwtClaimsConstant.EMP_ID).toString();
+            }
 
         } catch (RuntimeException e) {
             // 如果无效，拦截
@@ -65,7 +77,7 @@ public class AuthGlobalFilter implements GlobalFilter, Ordered {
             return response.setComplete();
         }
 
-        System.out.println("在全局过滤器中，userId == " + userId);
+        //System.out.println("在全局过滤器中，userId == " + userId);
         // 5.传递用户信息
         ServerWebExchange ex = exchange.mutate()
                 .request(b -> b.header(JwtClaimsConstant.USER_ID, userId))

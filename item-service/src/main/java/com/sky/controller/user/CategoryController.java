@@ -1,7 +1,7 @@
 package com.sky.controller.user;
 
+import com.sky.api.dto.Result;
 import com.sky.entity.Category;
-import com.sky.result.Result;
 import com.sky.service.CategoryService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

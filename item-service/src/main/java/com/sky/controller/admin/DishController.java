@@ -2,11 +2,11 @@ package com.sky.controller.admin;
 
 
 import com.github.benmanes.caffeine.cache.Cache;
+import com.sky.api.dto.Dish;
+import com.sky.api.dto.Result;
 import com.sky.dto.DishDTO;
 import com.sky.dto.DishPageQueryDTO;
-import com.sky.entity.Dish;
 import com.sky.result.PageResult;
-import com.sky.result.Result;
 import com.sky.service.DishService;
 import com.sky.vo.DishVO;
 import io.swagger.annotations.Api;

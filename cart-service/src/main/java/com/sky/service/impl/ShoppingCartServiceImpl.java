@@ -1,13 +1,13 @@
 package com.sky.service.impl;
 
 import com.sky.api.client.ItemClient;
+import com.sky.api.dto.Dish;
+import com.sky.api.dto.Setmeal;
+import com.sky.api.dto.ShoppingCart;
 import com.sky.context.BaseContext;
 import com.sky.dto.ShoppingCartDTO;
-import com.sky.entity.Dish;
-import com.sky.entity.Setmeal;
 import com.sky.mapper.ShoppingCartMapper;
 import com.sky.service.ShoppingCartService;
-import com.sky.vo.ShoppingCart;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;

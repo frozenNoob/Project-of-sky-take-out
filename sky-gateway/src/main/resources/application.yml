@@ -5,6 +5,7 @@ sky:
     exclude-paths:
       - /user/user/login
       - /admin/employee/login
+      - /ws/**
   jwt:
     # 设置jwt签名加密时使用的秘钥
     admin-secret-key: ${sky.jwt.admin-secret-key}

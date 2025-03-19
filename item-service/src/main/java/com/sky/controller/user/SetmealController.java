@@ -1,9 +1,9 @@
 package com.sky.controller.user;
 
+import com.sky.api.dto.Result;
+import com.sky.api.dto.Setmeal;
 import com.sky.constant.StatusConstant;
-import com.sky.entity.Setmeal;
 import com.sky.mapper.SetmealMapper;
-import com.sky.result.Result;
 import com.sky.service.SetmealService;
 import com.sky.vo.DishItemVO;
 import com.sky.vo.SetmealVO;

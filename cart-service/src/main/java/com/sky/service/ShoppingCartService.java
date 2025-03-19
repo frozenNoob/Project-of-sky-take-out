@@ -1,7 +1,7 @@
 package com.sky.service;
 
-import com.sky.vo.ShoppingCart;
 
+import com.sky.api.dto.ShoppingCart;
 import com.sky.dto.ShoppingCartDTO;
 
 import java.util.List;

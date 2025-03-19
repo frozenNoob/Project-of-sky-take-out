@@ -1,10 +1,10 @@
 package com.sky.controller.user;
 
 import com.github.benmanes.caffeine.cache.Cache;
+import com.sky.api.dto.Dish;
+import com.sky.api.dto.Result;
 import com.sky.constant.StatusConstant;
-import com.sky.entity.Dish;
 import com.sky.mapper.DishMapper;
-import com.sky.result.Result;
 import com.sky.service.DishService;
 import com.sky.vo.DishVO;
 import io.swagger.annotations.Api;

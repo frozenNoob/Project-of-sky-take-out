@@ -1,8 +1,8 @@
 package com.sky.api.client;
 
 import com.sky.api.config.DefaultFeignConfig;
-import com.sky.entity.Dish;
-import com.sky.entity.Setmeal;
+import com.sky.api.dto.Dish;
+import com.sky.api.dto.Setmeal;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

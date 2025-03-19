@@ -1,8 +1,8 @@
 package com.sky.api.client;
 
 import com.sky.api.client.fallback.ShoppingCartClientFallBack;
+import com.sky.api.dto.Result;
 import com.sky.api.dto.ShoppingCart;
-import com.sky.result.Result;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.DeleteMapping;
