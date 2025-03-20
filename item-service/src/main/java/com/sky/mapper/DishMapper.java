@@ -91,6 +91,6 @@ public interface DishMapper {
      */
     Integer countByMap(Map map);
 
-    @Select("select * from dish where status=1")
+    @Select("select * from dish where status=1 order by create_time DESC")
     List<Dish> getAllDish();
 }

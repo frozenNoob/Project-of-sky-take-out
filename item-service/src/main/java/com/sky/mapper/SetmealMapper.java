@@ -95,6 +95,6 @@ public interface SetmealMapper {
      */
     Integer countByMap(Map map);
 
-    @Select("select * from setmeal where status=1")
+    @Select("select * from setmeal where status=1 order by create_time DESC")
     List<SetmealVO> getAllSetmeal();
 }
