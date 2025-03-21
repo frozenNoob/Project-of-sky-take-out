@@ -8,6 +8,11 @@ spring:
   cloud:
     nacos:
       server-addr: 192.168.139.132:8848 # nacos地址
+      discovery: # 服务发现中心
+        # 心跳间隔（默认 5 秒）
+        heart-beat-interval: 3000
+        # 心跳超时（默认 15 秒）
+        heart-beat-timeout: 30000
       config:
         shared-configs: # 共享配置
           - data-id: shared-log.yaml # 共享日志配置
