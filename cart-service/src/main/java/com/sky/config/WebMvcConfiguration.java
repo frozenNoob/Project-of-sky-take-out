@@ -40,6 +40,7 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
         log.info("开始注册自定义拦截器...");
 
         registry.addInterceptor(jwtTokenUserInterceptor)
+                .addPathPatterns("/user/**")
                 .excludePathPatterns("/user/user/login", "/user/user");
         // 为了Seata能够正确地传递xid
         registry.addInterceptor(new SeataHandlerInterceptor());

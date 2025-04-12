@@ -5,19 +5,12 @@ import com.sky.interceptor.JwtTokenUserInterceptor;
 import com.sky.json.JacksonObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
-import springfox.documentation.builders.ApiInfoBuilder;
-import springfox.documentation.builders.PathSelectors;
-import springfox.documentation.builders.RequestHandlerSelectors;
-import springfox.documentation.service.ApiInfo;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spring.web.plugins.Docket;
 
 import java.util.List;
 
@@ -42,30 +35,11 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
         log.info("开始注册自定义拦截器...");
 
         registry.addInterceptor(jwtTokenUserInterceptor)
+                .addPathPatterns("/user/**")
                 .excludePathPatterns("/user/user/login");
-        registry.addInterceptor(new SentinelWebInterceptor());
+        registry.addInterceptor(new SentinelWebInterceptor())
+                .addPathPatterns("/user/**");
 
-    }
-
-    @Bean
-    public Docket docket2() {
-        log.info("准备生成接口文档...");
-        ApiInfo apiInfo = new ApiInfoBuilder()
-                .title("苍穹外卖项目用户相关接口文档")
-                .version("2.0")
-                .description("苍穹外卖项目用户相关接口文档")
-                .build();
-
-        Docket docket = new Docket(DocumentationType.SWAGGER_2)
-                .groupName("用户端接口")
-                .apiInfo(apiInfo)
-                .select()
-                //指定生成接口需要扫描的包
-                .apis(RequestHandlerSelectors.basePackage("com.sky.controller"))
-                .paths(PathSelectors.any())
-                .build();
-
-        return docket;
     }
 
     /**
